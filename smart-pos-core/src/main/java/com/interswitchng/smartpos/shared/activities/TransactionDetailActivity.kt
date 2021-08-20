@@ -14,13 +14,17 @@ import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.core.UserType
 import com.interswitchng.smartpos.shared.models.results.IswTransactionResult
 import com.interswitchng.smartpos.shared.models.transaction.AdditionalInfo
+import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.TransactionResultData
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.DateUtils
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
 import com.interswitchng.smartpos.shared.utilities.toast
 import com.interswitchng.smartpos.shared.viewmodel.TransactionDetailViewModel
 import kotlinx.android.synthetic.main.isw_activity_transaction_detail.*
+import kotlinx.android.synthetic.main.isw_activity_transaction_detail.tvAmount
+import kotlinx.android.synthetic.main.isw_content_transaction_card_flow.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
@@ -58,10 +62,19 @@ class TransactionDetailActivity : BaseMenuActivity(), IswPos.IswPaymentCallback 
 
     private fun setupUI(result: TransactionResultData) {
         // set text views values
-        tvAmount.text = getString(
-            R.string.isw_currency_amount,
+        var amountString: String
+
+        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
+            amountString = tvAmount.context.getString(
+                R.string.isw_dollar_title_amount,
+                DisplayUtils.getAmountString(result.amount.toInt()))
+        }else{
+            amountString = getString(
+                    R.string.isw_currency_amount,
             DisplayUtils.getAmountString(result.amount.toInt())
-        )
+            )
+        }
+        tvAmount.text = amountString
 
         tvStan.text = result.stan
         tvResponseCode.text = result.responseCode

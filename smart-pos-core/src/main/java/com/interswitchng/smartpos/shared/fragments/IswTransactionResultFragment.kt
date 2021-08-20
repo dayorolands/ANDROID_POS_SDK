@@ -1,5 +1,6 @@
 package com.interswitchng.smartpos.shared.fragments
 
+//import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,18 +18,18 @@ import com.interswitchng.smartpos.modules.transactions.purchase.cashback.IswCash
 import com.interswitchng.smartpos.modules.transactions.refund.IswRefundFragment
 import com.interswitchng.smartpos.shared.IswConstants
 import com.interswitchng.smartpos.shared.interfaces.library.KeyValueStore
-import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
-import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.core.UserType
 import com.interswitchng.smartpos.shared.models.printer.slips.TransactionSlip
 import com.interswitchng.smartpos.shared.models.results.IswTransactionResult
 import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.TransactionResultData
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DialogUtils
 import com.interswitchng.smartpos.shared.utils.DisplayUtils.toast
 import com.interswitchng.smartpos.shared.viewmodel.TransactionResultViewModel
+import kotlinx.android.synthetic.main.isw_activity_terminal_settings.*
 import kotlinx.android.synthetic.main.isw_fragment_transaction_result.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -197,14 +198,13 @@ internal class IswTransactionResultFragment: Fragment(), View.OnClickListener {
     }
 
     private fun showSuccessfulResult() {
-
         // show success buttons
         successButtons.visibility = View.VISIBLE
 
         // get formatted amount
         var amount = getString(R.string.isw_title_amount, parent.iswPaymentInfo.amountString)
         // set subtitle
-        if (CURRENCYTYPE == IswLocal.USA.currency){
+        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
             amount = getString(R.string.isw_dollar_title_amount, parent.iswPaymentInfo.amountString)
         }
         resultSubtitle.text = "your payment of $amount has been completed."

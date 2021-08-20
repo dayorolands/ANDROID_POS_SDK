@@ -6,4 +6,4 @@ enum class IswLocal(val currency: String, internal val code: String) {
     USA("\u0024", "840")
 }
 
-var CURRENCYTYPE = IswLocal.NIGERIA.currency
+//var CURRENCYTYPE = IswLocal.NIGERIA.currency

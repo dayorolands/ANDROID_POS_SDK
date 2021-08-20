@@ -2,16 +2,15 @@ package com.interswitchng.smartpos.shared.utilities
 
 import android.app.Activity
 import android.content.Context
-import android.provider.Settings.Secure.getString
 import android.util.DisplayMetrics
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import com.interswitchng.smartpos.R
 import com.interswitchng.smartpos.shared.interfaces.library.KeyValueStore
-import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
+//import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
 import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.get
 import java.text.NumberFormat
@@ -119,7 +118,7 @@ internal object DisplayUtils: KoinComponent {
             }
         }
 
-        if (CURRENCYTYPE == IswLocal.USA.currency){
+        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
             currency = when(val config = TerminalInfo.get(store)){
                 null -> ""
                 else -> when(config.currencyCode2){
@@ -129,6 +128,18 @@ internal object DisplayUtils: KoinComponent {
             }
         }
 
+        Logger.with("Display Utils").logErr( amount)
+        var formattedAmount = getAmountString(amount.toInt())
+        return "$currency $formattedAmount"
+    }
+
+    fun getAmtWithCurrency(amount: String, currencyType: IswPaymentInfo.CurrencyType): String {
+
+        // get the currency based on the terminal's configured currency code
+        val currency =  when(currencyType) {
+            IswPaymentInfo.CurrencyType.NAIRA -> IswLocal.NIGERIA.currency
+            IswPaymentInfo.CurrencyType.DOLLAR -> IswLocal.USA.currency
+        }
         Logger.with("Display Utils").logErr( amount)
         var formattedAmount = getAmountString(amount.toInt())
         return "$currency $formattedAmount"

@@ -2,6 +2,7 @@ package com.interswitchng.smartpos.shared.models.printer.info
 
 
 import com.interswitchng.smartpos.shared.models.core.TransactionType
+import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.PaymentType
 
 /**
@@ -28,5 +29,5 @@ data class TransactionInfo(
     val surcharge: String? = "", //this should be removed in the future
     val additionalInfo: String? = "",
     val additionalAmounts: String? = "",
-    val currencyType: String = ""
+    val currencyType: IswPaymentInfo.CurrencyType
 )

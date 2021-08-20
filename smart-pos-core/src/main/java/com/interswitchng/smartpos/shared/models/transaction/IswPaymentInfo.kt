@@ -9,12 +9,12 @@ import java.util.*
  * This class represents the purchase request
  * triggered by external source that depends the SDK
  */
-internal data class IswPaymentInfo(
+data class IswPaymentInfo(
     val amount: Int,
     val currentStan: String,
     val surcharge: Int = 0,
     val additionalAmounts: Int = 0,
-    val currencyType: CurrencyType? = CurrencyType.NAIRA
+    var currencyType: CurrencyType? = CurrencyType.NAIRA
 ) : Parcelable {
 
 
@@ -59,3 +59,5 @@ internal data class IswPaymentInfo(
         }
     }
 }
+
+var currencyType = IswPaymentInfo.CurrencyType.NAIRA

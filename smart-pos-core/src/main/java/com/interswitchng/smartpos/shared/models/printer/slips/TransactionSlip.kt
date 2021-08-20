@@ -1,11 +1,13 @@
 package com.interswitchng.smartpos.shared.models.printer.slips
 
-import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
+//import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
 import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.posconfig.PrintObject
 import com.interswitchng.smartpos.shared.models.posconfig.PrintStringConfiguration
 import com.interswitchng.smartpos.shared.models.printer.info.TransactionStatus
+import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 
 
@@ -70,7 +72,7 @@ internal abstract class TransactionSlip(private val terminal: TerminalInfo, priv
         val merchantName = pairString("merchant", terminal.merchantNameAndLocation)
         var terminalId = pairString("Terminal Id", terminal.terminalId)
         var merchantId = pairString("Merchant Id", terminal.merchantId)
-        if (CURRENCYTYPE == IswLocal.USA.currency){
+        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
             terminalId = pairString("Terminal Id", terminal.terminalId2)
             merchantId = pairString("Merchant Id", terminal.merchantId2)
         }

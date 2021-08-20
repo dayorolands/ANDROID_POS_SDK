@@ -6,14 +6,16 @@ import com.interswitchng.smartpos.emv.pax.utilities.EmvUtils
 import com.interswitchng.smartpos.emv.pax.utilities.EmvUtils.bcd2Str
 import com.interswitchng.smartpos.emv.pax.utilities.EmvUtils.bytes2String
 import com.interswitchng.smartpos.emv.pax.utilities.EmvUtils.str2Bcd
-import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
+//import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
 import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.posconfig.EmvAIDs
 import com.interswitchng.smartpos.shared.models.posconfig.TerminalConfig
+import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.CardType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.IccData
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.response.TransactionResponse
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.utilities.FileUtils
 import com.interswitchng.smartpos.shared.utilities.Logger
 import com.pax.jemv.clcommon.*
@@ -124,7 +126,7 @@ internal class EmvImplementation(private val context: Context, private val pinCa
             capability = str2Bcd(terminalConfig.terminalcapability)
             countryCode = str2Bcd(terminalInfo.countryCode)
             transCurrCode = str2Bcd(terminalInfo.currencyCode)
-            if (CURRENCYTYPE == IswLocal.USA.currency){
+            if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
                 transCurrCode = str2Bcd(terminalInfo.currencyCode2)
             }
             merchName = terminalInfo.merchantNameAndLocation.toByteArray()

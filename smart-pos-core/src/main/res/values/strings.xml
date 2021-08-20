@@ -21,6 +21,7 @@
 
     <string name="isw_amount">%1$s</string>
     <string name="isw_currency_amount">₦ %1$s</string>
+    <string name="isw_dollar_currency_amount">$ %1$s</string>
     <string name="isw_hint_qr_code">Please scan QR code to pay using your banking app</string>
 
     <string name="isw_title_download_keys">Download Keys</string>

@@ -1,14 +1,13 @@
 package com.interswitchng.smartpos.shared.models.transaction
 
+import android.os.Parcelable
 import com.google.gson.Gson
-import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.TransactionType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.CardType
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmModule
 import java.util.*
-import kotlin.collections.HashMap
 
 /**
  * This class is responsible for capturing
@@ -34,7 +33,8 @@ open class TransactionLog(
     var code: String = "",
     var telephone: String = "",
     var time: Long = Date().time,
-    var additionalInfo: String = "" //use this to serialize other misc fields
+    var additionalInfo: String = ""
+    //var currencyType: Int = IswPaymentInfo.CurrencyType.NAIRA.ordinal //use this to serialize other misc fields
 ) : RealmObject() {
 
 
@@ -86,7 +86,7 @@ open class TransactionLog(
             }
         }
 
-
+        //val currencyType = IswPaymentInfo.CurrencyType.values().first{it.ordinal == this.currencyType}
         return TransactionResultData(
             paymentType,
             stan,
@@ -110,6 +110,7 @@ open class TransactionLog(
             //additionalInfo = additionalInfo,
             additionalAmounts = cashBackAmount,
             surcharge = surcharge
+            //currencyType
         )
     }
 
@@ -143,7 +144,7 @@ open class TransactionLog(
             transactionId = result.transactionId,
             //additionalInfo = result.additionalInfo.toString()
             additionalInfo = Gson().toJson(AdditionalInfo(result.surcharge, result.additionalAmounts))
-            //currencyType
+            //currencyType = result.currencyType.ordinal
         )
     }
 }
@@ -155,13 +156,13 @@ data class EodSummary(val totalVolume: Int, val successVolume: Int, val failedVo
 
 data class AdditionalInfo(val surcharge: String?, val additionalAmounts: String?){
 
-    companion object{
-        internal fun toHashMap(additionalInfo: AdditionalInfo): HashMap<String, String?> {
-            val keyValue: HashMap<String, String?> = HashMap()
-            keyValue["surcharge"] = additionalInfo.surcharge
-            keyValue["additionalAmounts"] = additionalInfo.additionalAmounts
-
-            return  keyValue;
-        }
-    }
+//    companion object{
+//        internal fun toHashMap(additionalInfo: AdditionalInfo): HashMap<String, String?> {
+//            val keyValue: HashMap<String, String?> = HashMap()
+//            keyValue["surcharge"] = additionalInfo.surcharge
+//            keyValue["additionalAmounts"] = additionalInfo.additionalAmounts
+//
+//            return  keyValue;
+//        }
+//    }
 }

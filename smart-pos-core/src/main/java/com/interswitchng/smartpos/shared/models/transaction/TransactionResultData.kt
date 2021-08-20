@@ -2,7 +2,6 @@ package com.interswitchng.smartpos.shared.models.transaction
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.printer.info.TransactionInfo
 import com.interswitchng.smartpos.shared.models.printer.info.TransactionStatus
@@ -44,6 +43,7 @@ internal data class TransactionResultData(
     val customerDescription: String? = "",
     val surcharge: String? = "",
     val additionalAmounts: String? = ""
+    //val currencyType: IswPaymentInfo.CurrencyType
 ) : Parcelable {
 
 
@@ -71,6 +71,7 @@ internal data class TransactionResultData(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!
+        //getCurrencyType(parcel.readInt())
     )
 
     val isSuccessful: Boolean get() = responseCode == IsoUtils.OK
@@ -116,7 +117,8 @@ internal data class TransactionResultData(
             biller = biller,
             customerDescription = customerDescription,
             surcharge = surcharge,
-            additionalAmounts = additionalAmounts
+            additionalAmounts = additionalAmounts,
+            currencyType = currencyType
         )
 
 
@@ -154,6 +156,7 @@ internal data class TransactionResultData(
         parcel.writeString(customerDescription)
         parcel.writeString(surcharge)
         parcel.writeString(additionalAmounts)
+        //parcel.writeInt(currencyType.ordinal)
     }
 
     override fun describeContents(): Int {
@@ -187,6 +190,13 @@ internal data class TransactionResultData(
             TransactionType.Payments.ordinal -> TransactionType.Payments
             TransactionType.CashBack.ordinal -> TransactionType.CashBack
             else -> TransactionType.Purchase
+        }
+
+        private fun getCurrencyType(ordinal: Int): IswPaymentInfo.CurrencyType {
+            return when (ordinal) {
+                IswPaymentInfo.CurrencyType.NAIRA.ordinal -> IswPaymentInfo.CurrencyType.NAIRA
+                else -> IswPaymentInfo.CurrencyType.DOLLAR
+            }
         }
 
         private fun getCardType(ordinal: Int) = when (ordinal) {

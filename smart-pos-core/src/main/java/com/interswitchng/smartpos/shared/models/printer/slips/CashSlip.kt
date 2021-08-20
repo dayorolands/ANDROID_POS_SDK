@@ -48,7 +48,9 @@ internal class CashSlip(terminal: TerminalInfo, status: TransactionStatus, priva
         val list = mutableListOf(quickTellerText, txnType, paymentType, date, time, dateTime, transactionId)
 
 
-        val amount = pairString("amount", DisplayUtils.getAmountWithCurrency(info.amount))
+        val amount = pairString("amount", DisplayUtils.getAmountWithCurrency(
+            info.amount
+        ))
         // if reprinting, add reprint flags below and above amount
         if (rePrint) {
             val rePrintFlag = PrintObject.Data(

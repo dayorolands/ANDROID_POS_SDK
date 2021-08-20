@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.interswitchng.smartpos.R
 import com.interswitchng.smartpos.shared.interfaces.library.KeyValueStore
-import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
+//import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
 import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
@@ -25,6 +25,7 @@ import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.EmvResul
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.AccountType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.EmvData
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.response.TransactionResponse
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.utilities.CurrencyDialog
 import com.interswitchng.smartpos.shared.utilities.DialogUtils
 import com.interswitchng.smartpos.shared.utilities.Logger
@@ -204,7 +205,7 @@ internal class IswCardFlowFragment : Fragment() {
 
                 // set title amount
                 var amountString = getString(R.string.isw_title_amount, paymentInfo.amountString)
-                if (CURRENCYTYPE == IswLocal.USA.currency){
+                if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
                     amountString = getString(R.string.isw_dollar_title_amount, paymentInfo.amountString)
                 }
                 val pinHintString = getString(R.string.isw_title_pin_amount, amountString)
@@ -308,7 +309,7 @@ internal class IswCardFlowFragment : Fragment() {
         val currencyDialog = CurrencyDialog{
             when(it){
                 0 -> {
-                    CURRENCYTYPE = IswLocal.NIGERIA.currency
+                    currencyType = IswPaymentInfo.CurrencyType.NAIRA
                     //cancelDialog.show()
                     DialogUtils.getAlertDialog(context!!)
                         .setTitle("Continue")
@@ -328,7 +329,7 @@ internal class IswCardFlowFragment : Fragment() {
                 }
 
                 1 -> {
-                    CURRENCYTYPE = IswLocal.USA.currency
+                    currencyType = IswPaymentInfo.CurrencyType.DOLLAR
                     //cancelDialog.show()
                     DialogUtils.getAlertDialog(context!!)
                         .setTitle("Continue")

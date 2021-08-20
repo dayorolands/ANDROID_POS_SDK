@@ -12,7 +12,7 @@ import com.interswitchng.smartpos.modules.transactions.purchase.IswPurchaseFragm
 import com.interswitchng.smartpos.modules.transactions.purchase.IswPurchaseViewModel
 import com.interswitchng.smartpos.modules.transactions.purchase.shared.fragments.IswBasePaymentFragment
 import com.interswitchng.smartpos.shared.IswConstants
-import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
+//import com.interswitchng.smartpos.shared.models.core.CURRENCYTYPE
 import com.interswitchng.smartpos.shared.models.core.IswLocal
 import com.interswitchng.smartpos.shared.models.core.UserType
 import com.interswitchng.smartpos.shared.models.printer.slips.TransactionSlip
@@ -20,6 +20,7 @@ import com.interswitchng.smartpos.shared.models.results.IswPurchaseResult
 import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.PaymentType
 import com.interswitchng.smartpos.shared.models.transaction.TransactionResultData
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DialogUtils
 import com.interswitchng.smartpos.shared.utils.DisplayUtils.toast
@@ -195,10 +196,12 @@ internal class IswPurchaseResultFragment : IswBasePaymentFragment(), View.OnClic
 
 
         // get formatted amount
-        var amount = getString(R.string.isw_title_amount, paymentInfo.amountString)
+        var amount: String
         // set subtitle
-        if (CURRENCYTYPE == IswLocal.USA.currency){
+        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
             amount = getString(R.string.isw_dollar_title_amount, paymentInfo.amountString)
+        }else{
+            amount = getString(R.string.isw_title_amount, paymentInfo.amountString)
         }
         resultSubtitle.text = "your payment of $amount has been completed."
 

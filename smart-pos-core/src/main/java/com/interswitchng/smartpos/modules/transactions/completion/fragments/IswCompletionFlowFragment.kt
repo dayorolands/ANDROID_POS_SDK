@@ -14,9 +14,7 @@ import com.interswitchng.smartpos.shared.fragments.IswCardFlowFragment
 import com.interswitchng.smartpos.shared.interfaces.library.KeyValueStore
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.core.TransactionType
-import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
-import com.interswitchng.smartpos.shared.models.transaction.PaymentType
-import com.interswitchng.smartpos.shared.models.transaction.TransactionLog
+import com.interswitchng.smartpos.shared.models.transaction.*
 import com.interswitchng.smartpos.shared.models.transaction.TransactionResultData
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.EmvResult
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.AccountType
@@ -90,10 +88,15 @@ internal class IswCompletionFlowFragment : Fragment(), IswCardFlowFragment.CardF
 
 
         // set title amount
-        val amountString = getString(
+        var amountString = getString(
             R.string.isw_title_amount,
             parent.iswPaymentInfo.amountString
         )
+        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
+            amountString = tvAmount.context.getString(
+                R.string.isw_dollar_title_amount,
+                parent.iswPaymentInfo.amountString)
+        }
         tvAmount.text = amountString
 
         // observe view model

@@ -1,7 +1,5 @@
 package com.interswitchng.smartpos.shared.models.printer.slips
 
-import android.content.res.Resources
-import com.interswitchng.smartpos.R
 import com.interswitchng.smartpos.shared.models.core.TerminalInfo
 import com.interswitchng.smartpos.shared.models.core.TransactionType
 import com.interswitchng.smartpos.shared.models.posconfig.PrintObject
@@ -55,13 +53,17 @@ internal class CardSlip(terminal: TerminalInfo, status: TransactionStatus, priva
             }
             TransactionType.CashBack -> {
                 if(!info.additionalAmounts.isNullOrEmpty()){
-                    list.add(pairString("cashback amount", DisplayUtils.getAmountWithCurrency(info.additionalAmounts)))
-                    list.add(pairString("purchase amount", DisplayUtils.getAmountWithCurrency((info.amount.toInt() - info.additionalAmounts.toInt()).toString())))
+                    list.add(pairString("cashback amount", DisplayUtils.getAmountWithCurrency(
+                        info.additionalAmounts
+                    )))
+                    list.add(pairString("purchase amount", DisplayUtils.getAmountWithCurrency(
+                        (info.amount.toInt() - info.additionalAmounts.toInt()).toString()
+                    )))
                 }
             }
         }
 
-        val amount = pairString("amount", DisplayUtils.getAmountWithCurrency(info.amount))
+        val amount = pairString("amount", DisplayUtils.getAmtWithCurrency(info.amount, info.currencyType))
 
         // if reprinting, add reprint flags below and above amount
         if (rePrint) {

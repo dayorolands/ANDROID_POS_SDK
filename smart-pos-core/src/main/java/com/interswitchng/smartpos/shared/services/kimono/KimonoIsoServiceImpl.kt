@@ -16,6 +16,7 @@ import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.PurchaseType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.TransactionInfo
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.response.TransactionResponse
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.models.transaction.payments.billpayment.InquiryResponse
 import com.interswitchng.smartpos.shared.models.transaction.payments.billpayment.IswBillPaymentInfo
 import com.interswitchng.smartpos.shared.services.kimono.models.*
@@ -82,7 +83,7 @@ internal class  KimonoIsoServiceImpl(
         }
 
         request.apply {
-            if(CURRENCYTYPE == IswLocal.USA.currency){
+            if(currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
                 terminalInformation?.currencyCode = terminalInfo.currencyCode2
                 Logger.with("OkHttp: The international currency code is ").logErr(terminalInformation?.currencyCode.toString())
                 terminalInformation?.terminalId = terminalInfo.terminalId2

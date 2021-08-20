@@ -11,7 +11,9 @@ import com.interswitchng.smartpos.shared.models.posconfig.PrintObject
 import com.interswitchng.smartpos.shared.models.posconfig.PrintStringConfiguration
 import com.interswitchng.smartpos.shared.models.printer.info.PrintStatus
 import com.interswitchng.smartpos.shared.models.transaction.EodSummary
+import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.TransactionLog
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.DateUtils
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
@@ -228,17 +230,17 @@ internal class ReportViewModel(
             return
         }
         transactions.forEach {
-            if (it.responseCode == IsoUtils.OK && CURRENCYTYPE == IswLocal.NIGERIA.currency) {
+            if (it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA) {
                 transactionApproved += 1
                 transactionApprovedAmountInNaira += DisplayUtils.getAmountString(it.amount)
-            }else if(it.responseCode == IsoUtils.OK && CURRENCYTYPE == IswLocal.USA.currency){
+            }else if(it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
                 transactionApproved += 1
                 transactionApprovedAmtInDollar += DisplayUtils.getAmountString(it.amount)
             }
-            else if(it.responseCode != IsoUtils.OK && CURRENCYTYPE == IswLocal.USA.currency){
+            else if(it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
                 transactionFailedAmountInDollar += DisplayUtils.getAmountString(it.amount)
             }
-            else  if (it.responseCode != IsoUtils.OK && CURRENCYTYPE == IswLocal.NIGERIA.currency){
+            else  if (it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA){
                 transactionFailedAmountInNaira += DisplayUtils.getAmountString(it.amount)
             }
         }
@@ -334,17 +336,17 @@ internal class ReportViewModel(
             lineItems.add(slipItem)
 
             //add successful transactions
-            if (it.responseCode == IsoUtils.OK && CURRENCYTYPE == IswLocal.NIGERIA.currency) {
+            if (it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA) {
                 transactionApproved += 1
                 transactionApprovedAmountInNaira += DisplayUtils.getAmountString(it.amount)
-            }else if(it.responseCode == IsoUtils.OK && CURRENCYTYPE == IswLocal.USA.currency){
+            }else if(it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
                 transactionApproved += 1
                 transactionApprovedAmountInDollar += DisplayUtils.getAmountString(it.amount)
             }
-            else if (it.responseCode != IsoUtils.OK && CURRENCYTYPE == IswLocal.NIGERIA.currency){
+            else if (it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA){
                 transactionFailedAmountInNaira += DisplayUtils.getAmountString(it.amount)
             }
-            else if (it.responseCode != IsoUtils.OK && CURRENCYTYPE == IswLocal.USA.currency){
+            else if (it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
                 transactionFailedAmountInDollar += DisplayUtils.getAmountString(it.amount)
             }
         }

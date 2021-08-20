@@ -67,6 +67,7 @@ data class TerminalInfo(
             | merchantNameAndLocation: $merchantNameAndLocation
             | merchantCategory: $merchantCategoryCode
             | currencyCode: $currencyCode
+            | currencyCode2: $currencyCode2
             | callHomeTimeInMin: $callHomeTimeInMin
             | serverTimeoutInSec: $serverTimeoutInSec
         """.trimIndent()
@@ -74,7 +75,6 @@ data class TerminalInfo(
 
 
     companion object {
-
         private const val PERSIST_KEY = "terminal_data"
 
         internal fun get(store: KeyValueStore): TerminalInfo? {

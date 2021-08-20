@@ -24,6 +24,7 @@ import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.PurchaseType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.TransactionInfo
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.response.TransactionResponse
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DialogUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
@@ -88,10 +89,15 @@ internal class IswCashOutCardFlowFragment : Fragment(), IswCardFlowFragment.Card
 
 
         // set title amount
-        val amountString = getString(
+        var amountString = getString(
                 R.string.isw_title_amount,
                 parent.iswPaymentInfo.amountString
         )
+        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
+            amountString = tvAmount.context.getString(
+                R.string.isw_dollar_currency_amount,
+                parent.iswPaymentInfo.amountString)
+        }
         tvAmount.text = amountString
 
         // observe view model
