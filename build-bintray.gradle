@@ -1,0 +1,30 @@
+apply plugin: 'com.jfrog.bintray'
+
+version = libraryVersion
+
+
+// Bintray
+bintray {
+    user = bintray_user
+    key = bintray_apikey
+
+    configurations = ['archives']
+    pkg {
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        // userOrg = organization   // If the repository is hosted by an organization instead of personal account.
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        publish = true
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+            gpg {
+                sign = true
+                passphrase = bintray_gpg_password
+            }
+        }
+    }
+}

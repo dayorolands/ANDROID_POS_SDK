@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    style="@style/ISW.ContainerPadding">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- change payment button -->
+        <include layout="@layout/isw_change_payment_button" />
+
+        <TextView
+            android:id="@+id/qrTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ISW.PaymentTitle"
+            android:text="Pay With QR"
+            android:layout_marginBottom="@dimen/isw_content_small_margin"
+            />
+
+        <TextView
+            android:id="@+id/qrSubTitle"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:text="Scan the QR code below using your financial institution's mobile app to complete the payment"
+            />
+
+        <ImageView
+            android:id="@+id/qrCodeImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="@dimen/isw_content_margin"
+            android:layout_gravity="center"
+            android:contentDescription="@string/isw_description_qr_image"
+            android:scaleType="center"
+            android:src="@color/iswPrimaryColorLightBg"
+            />
+
+
+
+        <LinearLayout
+            android:id="@+id/banner"
+            android:layout_marginTop="@dimen/isw_content_small_margin"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:src="@drawable/ic_verve_safe_token" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="8dp"
+                android:src="@drawable/ic_master_card" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:src="@drawable/ic_master_card_secure_code" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:src="@drawable/ic_verified_by_visa" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:src="@drawable/isw_visa" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/isw_content_small_margin"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/printCodeButton"
+                style="@style/ISW.Button"
+                android:layout_marginRight="@dimen/isw_content_mid_margin"
+                android:layout_marginEnd="@dimen/isw_content_mid_margin"
+                android:layout_width="wrap_content"
+                app:cardCornerRadius="@dimen/isw_corner_radius"
+                app:cardBackgroundColor="@color/iswColorPrimary">
+
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="30dp"
+                    android:contentDescription="@string/isw_hint_print_qr_code"
+                    android:padding="@dimen/isw_content_mid_margin"
+                    android:src="@drawable/isw_ic_printer"
+                    android:tint="@color/iswColorMainBackground" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnConfirmPayment"
+                style="@style/ISW.Button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="@dimen/isw_corner_radius"
+                app:cardBackgroundColor="@color/iswColorPrimary">
+
+                <TextView
+                    android:id="@+id/btnConfirmText"
+                    style="@style/ISW.ButtonText"
+                    android:text="Confirm Payment"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/loader"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:indeterminate="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:theme="@style/ISW.Progress.Light"
+                    android:visibility="gone" />
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btnPurchase"
+    style="@style/AppTheme.PaymentOption"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_margin="@dimen/isw_content_mid_margin"
+    app:cardBackgroundColor="@color/paymentOptionBg"
+    app:cardCornerRadius="@dimen/isw_corner_radius"
+    app:cardElevation="0dp"
+    app:contentPadding="@dimen/isw_content_mid_margin"
+    app:layout_constraintEnd_toStartOf="@+id/btnPreAuth"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/transactionIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="@dimen/isw_content_margin"
+            android:src="@drawable/ic_transaction_purchase" />
+
+        <TextView
+            android:id="@+id/transactionTitle"
+            style="@style/AppTheme.PaymentOptionTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Purchase" />
+
+
+        <CheckBox
+            android:id="@+id/cbIsDefault"
+            android:layout_width="32dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            tools:checked="true"
+            />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,183 @@
+<resources>
+    <string name="isw_app_name">Smart POS</string>
+    <string name="isw_description_qr_code_image">QR Code Image</string>
+    <string name="isw_title_generating_code">Generating Code</string>
+
+    <string name="isw_title_loading">Loading…</string>
+    <string name="isw_title_processing">Processing…</string>
+    <string name="isw_title_print_receipt">Print Receipt</string>
+    <string name="isw_title_transaction_successful">Transaction Approved</string>
+    <string name="isw_title_transaction_error">Transaction Failed</string>
+
+
+
+<!--    <string name="isw_hint_insert_card">Insert Card</string>-->
+<!--    <string name="isw_label_insert_card">Insert your card</string>-->
+    <string name="isw_enter_pin">Enter Pin</string>
+
+    <string name="isw_action_cancel">Cancel</string>
+    <string name="isw_action_close">Close</string>
+
+
+    <string name="isw_amount">%1$s</string>
+    <string name="isw_currency_amount">₦ %1$s</string>
+    <string name="isw_hint_qr_code">Please scan QR code to pay using your banking app</string>
+
+    <string name="isw_title_download_keys">Download Keys</string>
+    <string name="isw_title_keys_downloaded">Keys Downloaded</string>
+    <string name="isw_title_downloading_keys">Downloading Keys…</string>
+    <string name="isw_title_error_downloading_keys">Error downloading keys</string>
+
+    <string name="isw_title_merchant_details_downloaded">Merchant Details Downloaded</string>
+    <string name="isw_title_downloading_merchant_details">Downloading Merchant Details</string>
+    <string name="isw_title_download_merchant_details">Download Merchant Details</string>
+    <string name="isw_title_error_downloading_merchant_details">Error downloading merchant details</string>
+
+    <string name="isw_title_terminal_config_downloaded">Terminal Config Downloaded</string>
+    <string name="isw_title_downloading_terminal_config">Downloading Terminal Config</string>
+    <string name="isw_title_download_terminal_configuration">Download Terminal Configuration</string>
+    <string name="isw_title_error_downloading_terminal_config">Error Downloading Terminal Configuration</string>
+    <string name="isw_title_date">downloaded: %1s</string>
+
+    <string name="isw_title_terminal_id1">Terminal ID 1</string>
+    <string name="isw_title_terminal_id2">Terminal ID 2</string>
+    <string name="isw_title_help">Help</string>
+    <string name="isw_title_transaction_config">Transaction Config</string>
+    <string name="isw_title_setting">Settings</string>
+    <string name="isw_title_reports">Reports</string>
+    <string name="isw_title_history">History</string>
+    <string name="isw_label_transaction">Transactions</string>
+
+
+    <string name="isw_select_bank">Select Bank</string>
+    <string name="isw_receiving_payment">Receiving Payment</string>
+    <string name="isw_currency_naira">₦</string>
+    <string name="isw_dummy_price">678,910.99</string>
+    <string name="isw_title_status">Status</string>
+    <string name="isw_title_failed">Failed</string>
+    <string name="isw_title_select_account">Select Account</string>
+    <string name="isw_title_continue">Continue</string>
+
+    <string name="isw_drawer_close">open</string>
+    <string name="isw_drawer_open">close</string>
+
+
+    <string name="isw_title_try_again">Try Again</string>
+    <string name="isw_title_cancel">Cancel</string>
+
+
+    <string name="isw_hint_input_pin">Input your PIN</string>
+    <string name="isw_action_pay">Pay</string>
+
+    <string name="isw_title_email_receipt">Email Receipt</string>
+
+    <string name="isw_hint_scan_code">Scan Code</string>
+    <string name="isw_message_camera_permission">You need to grant access to camera to allow the app scan the Code.</string>
+
+
+    <string name="isw_yes">Yes</string>
+    <string name="isw_no">No</string>
+
+    <string name="isw_hint_select_bank_hint">Select Customer\'s Preferred Bank</string>
+    <string name="isw_hint_enter_ussd_code">Enter this code: %1$s to pay using Quickteller</string>
+
+    <string name="isw_report">Report</string>
+    <string name="isw_settings">Settings</string>
+    <string name="isw_help">Help</string>
+
+
+    <string name="isw_title_merchant_name_and_location">Merchant Name and Location</string>
+    <string name="isw_title_merchant_address">Merchant Address</string>
+    <string name="isw_title_merchant_category_code">Merchant Category Code</string>
+    <string name="isw_title_server_config">Server Config:</string>
+    <string name="isw_title_country_code">Country Code</string>
+    <string name="isw_title_merchant_alias">Merchant Alias</string>
+    <string name="isw_title_merchant_code">Merchant Code</string>
+    <string name="isw_title_currency_code1">Currency Code 1</string>
+    <string name="isw_title_currency_code2">Currency Code 2</string>
+    <string name="isw_title_terminal_capabilities">Terminal Capabilities</string>
+    <string name="isw_title_payment_code">Payment Code</string>
+
+    <string name="isw_title_merchant_id1">Merchant ID 1</string>
+    <string name="isw_title_merchant_id2">Merchant ID 2</string>
+    <string name="isw_hint_print_qr_code">PRINT QR CODE</string>
+    <string name="isw_value_support_tel">016283888</string>
+    <string name="isw_value_support_email">support@interswitchng.com</string>
+
+
+    <string-array name="isw_transaction_types">
+        <item>View By Transaction Type</item>
+        <item>All</item>
+        <item>Purchase</item>
+        <item>PreAuth</item>
+        <item>Completion</item>
+        <item>Refund</item>
+        <item>Transfer</item>
+        <item>Payments</item>
+        <item>IFIS</item>
+        <item>CashBack</item>
+    </string-array>
+
+    <string name="isw_receipt_date">%s</string>
+    <string name="isw_receipt_payment_type">%s</string>
+    <string name="isw_payment_type">Payment Type</string>
+    <string name="isw_amount_paid">Amount Paid</string>
+    <string name="isw_stan">Stan</string>
+    <string name="isw_authorization_code_label">Authorization Code</string>
+    <string name="isw_receipt_amount">%1$s</string>
+    <string name="isw_card_type">Card Type</string>
+    <string name="isw_bill_payment_details">Bill Payment Details</string>
+    <string name="isw_print_purchase">Print Purchase</string>
+    <string name="isw_select_transaction_type_to_print">Select Transaction Type To Print</string>
+    <string name="isw_print_pre_auth">Print Pre-Auth</string>
+    <string name="isw_print_completion">Print Completion</string>
+    <string name="isw_print_all_transactions">Print all transactions</string>
+    <string name="isw_refund_new">Refund</string>
+    <string name="isw_authenticate_supervisor_s_card">Authenticate Supervisor\'s Card</string>
+    <string name="isw_enter_merchant_s_pin">Enter Merchant\'s Pin</string>
+    <string name="isw_sample_pin">123456</string>
+    <string name="isw_title_pay">Pay</string>
+
+
+    <!-- new valid strings -->
+    <string-array name="isw_account_types">
+        <item name="default_account">Default Account</item>
+        <item name="savings_account">Savings Account</item>
+        <item name="current_account">Current Account</item>
+        <item name="credit_account">Credit Account</item>
+    </string-array>
+
+
+    <string name="isw_title_amount">\u20A6 %1$s</string>
+    <string name="isw_dollar_title_amount">\u0024 %1$s</string>
+    <string name="isw_description_qr_image">Qr Image</string>
+    <string name="isw_hint_pin">Enter your PIN</string>
+    <string name="isw_hint_account_type">Select account type</string>
+    <string name="isw_sdk_config">SDK Config</string>
+    <string name="isw_hint_select_a_date">Select a date</string>
+    <string name="isw_hint_select_start_a_date">From</string>
+    <string name="isw_hint_select_end_a_date">To</string>
+
+    <string name="isw_print_eod_label">Print end of day</string>
+    <string name="isw_eod_success_label">Successful</string>
+    <string name="isw_eod_failed_label">Failed</string>
+    <string name="isw_eod_total_label">Total</string>
+
+    <string name="isw_title_re_print_receipt">Re-Print Receipt</string>
+    <string name="isw_no_report">No Results for:\n %1$s to %2$s</string>
+    <string name="isw_empty_result">No Results for:\n %1$s</string>
+
+    <string name="isw_email_end_point">https://api.sendgrid.com/v3/</string>
+
+
+    <string name="isw_action_change">Change</string>
+    <string name="isw_action_change_payment">Change Payment Option</string>
+    <string name="isw_action_save">Save Config</string>
+    <string name="isw_title_pin_amount">Please enter your Card PIN to authorize and complete your payment of %1$s</string>
+    <string name="isw_naira">Naira</string>
+    <string name="isw_dollar">Dollar</string>
+    <string name="isw_naira_currency">566</string>
+    <string name="isw_dollar_currency">840</string>
+
+
+</resources>

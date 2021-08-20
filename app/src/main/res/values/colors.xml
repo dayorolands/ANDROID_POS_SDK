@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/iswColorPrimary</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">@color/iswColorPrimary</color>
+
+    <color name="colorMainBackground">#F2F4F6</color>
+    <color name="colorTextHighlight">#848E96</color>
+    <color name="paymentOptionBg">#FFF</color>
+
+    <color name="statusBarColor">#C0C6CB</color>
+</resources>

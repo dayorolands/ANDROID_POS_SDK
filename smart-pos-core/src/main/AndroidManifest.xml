@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.interswitchng.smartpos">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/isw_preloaded_fonts" />
+
+        <activity
+            android:name=".modules.transactions.IswPaymentActivity"
+            android:theme="@style/ISW.Theme.Transparent"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".modules.menu.settings.supervisor.SupervisorSettingsActivity"
+            android:label="Supervisor Settings"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+        <activity
+            android:name=".modules.menu.settings.SettingsOptionsActivity"
+            android:label="Settings"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+        <activity
+            android:name=".modules.menu.settings.merchant.MerchantSettingsActivity"
+            android:label="Merchant Settings"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+        <activity
+            android:name=".modules.menu.settings.terminal.TerminalSettingsActivity"
+            android:label="Terminal Settings"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+        <activity
+            android:name=".modules.menu.history.HistoryActivity"
+            android:label="History"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+        <activity
+            android:name=".modules.menu.report.ReportActivity"
+            android:label="Report"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+        <activity android:name=".modules.print.IswPrintActivity"
+            android:label="Print"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+
+
+        <activity android:name=".shared.activities.TransactionDetailActivity"
+            android:label="Transaction Detail"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/ISW.NoActionBar" />
+    </application>
+
+</manifest>

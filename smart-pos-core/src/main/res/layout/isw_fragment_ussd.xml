@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    style="@style/ISW.ContainerPadding">
+
+
+
+    <LinearLayout
+        android:id="@+id/ussdRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".modules.transactions.purchase.modules.ussdqr.fragments.IswUssdFragment"
+        >
+
+
+        <include layout="@layout/isw_change_payment_button" />
+
+        <TextView
+            android:id="@+id/ussdTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ISW.PaymentTitle"
+            android:text="Pay With USSD"
+            />
+
+
+        <TextView
+            android:id="@+id/dropDownLabel"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_container_margin"
+            android:text="Choose your bank from the list below and dial the code to complete payment"
+            />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:id="@+id/etBanksSpinner"
+                style="@style/ISW.EditText"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:layout_marginBottom="@dimen/isw_content_margin"
+                android:textIsSelectable="false"
+                android:inputType="textNoSuggestions"
+                android:cursorVisible="false"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="Select bank"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/isw_ic_chevron_down"
+                android:tint="@color/iswTextColorDark"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/etBanksSpinner"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Spinner
+            android:id="@+id/banksSpinner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:spinnerMode="dialog"
+            android:clickable="false"
+            />
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/ussdContainer"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswPrimaryColorLightBg"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            android:clickable="false"
+            android:focusable="false"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <TextView
+                android:id="@+id/tvUssd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/ISW.UssdHint"
+                android:textSize="24sp"
+                tools:text="*737*51*43*1283724#"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tvUssdHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/ISW.SubTitle"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
+            tools:text="Enter this code: 500040 to pay using your mobile banking app or Quickteller"
+            />
+
+        <LinearLayout
+            android:id="@+id/btnsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/printCodeButton"
+                style="@style/ISW.Button"
+                android:layout_marginRight="@dimen/isw_content_mid_margin"
+                android:layout_marginEnd="@dimen/isw_content_mid_margin"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/isw_container_margin"
+                app:cardCornerRadius="@dimen/isw_corner_radius"
+                app:cardBackgroundColor="@color/iswColorPrimary">
+
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/isw_content_mid_margin"
+                    android:contentDescription="@string/isw_hint_print_qr_code"
+                    android:tint="@color/iswColorMainBackground"
+                    android:src="@drawable/isw_ic_printer" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnConfirmPayment"
+                style="@style/ISW.Button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/isw_container_margin"
+                app:cardCornerRadius="@dimen/isw_corner_radius"
+                app:cardBackgroundColor="@color/iswColorPrimary">
+
+                <TextView
+                    android:id="@+id/btnConfirmText"
+                    style="@style/ISW.ButtonText"
+                    android:text="Confirm Payment"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/loader"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:indeterminate="true"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:theme="@style/ISW.Progress.Light"
+                    android:visibility="gone" />
+
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/showCurrencyDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/isw_content_padding"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/insertCardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/isw_content_padding"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/insertCardHintTitle"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginTop="0dp"
+            android:text="Insert Card"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/insertCardHint"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:gravity="start"
+            android:text="Insert your Debit/Credit card to perform payment"
+            app:layout_constraintTop_toBottomOf="@id/insertCardHintTitle" />
+
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="@dimen/isw_content_margin"
+            android:src="@drawable/isw_ic_insert_card"
+            app:layout_constraintTop_toBottomOf="@id/insertCardHint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/chooseAccountContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/isw_content_mid_margin"
+        android:layout_marginBottom="@dimen/isw_content_mid_margin"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/accountTypeHintTitle"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginTop="0dp"
+            android:text="Account Type"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/accountTypeHint"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:gravity="start"
+            android:layout_marginBottom="@dimen/isw_content_margin"
+            android:text="Please select your account type below" />
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnDefault"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                style="@style/ISW.AltOption"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Default Account" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnSavings"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                style="@style/ISW.AltOption"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Savings Account" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCurrent"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                style="@style/ISW.AltOption"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Current Account" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCredit"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                style="@style/ISW.AltOption"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Credit Account" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/insertPinContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/isw_content_mid_margin"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/pinHintTitle"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginTop="0dp"
+            android:text="PIN"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/pinHint"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:gravity="start"
+            android:layout_marginBottom="@dimen/isw_content_margin"
+            android:text="Please enter your Card PIN to authorize and complete your payment of N10,000" />
+
+
+
+        <androidx.cardview.widget.CardView
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                style="@style/ISW.AltOption"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/accountTypeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    tools:text="Savings Account" />
+
+
+                <ImageView
+                    android:id="@+id/cardTypeIcon"
+                    android:layout_width="38dp"
+                    android:layout_height="32dp"
+                    tools:src="@drawable/isw_ic_card_mastercard" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPinContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/isw_content_mid_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cardPin"
+                style="@style/ISW.EditText"
+                android:clickable="false"
+                android:digits="0123456789"
+                android:focusable="false"
+                android:hint="@string/isw_hint_pin"
+                android:imeOptions="actionDone"
+                android:inputType="numberPassword"
+                android:maxLength="6"
+                android:maxLines="1"
+                android:textIsSelectable="false" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

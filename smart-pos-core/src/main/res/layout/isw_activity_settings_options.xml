@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/iswColorMainBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/iswColorMainBackground"
+        app:navigationIcon="@drawable/isw_ic_arrow_back"
+        app:popupTheme="@style/ISW.PopupOverlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <LinearLayout
+        style="@style/ISW.ContainerPadding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/iswColorMainBackground"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnMerchantSettings"
+                    style="@style/ISW.PaymentOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    card_view:cardBackgroundColor="@color/iswPaymentOptionBg"
+                    card_view:cardCornerRadius="@dimen/isw_corner_radius"
+                    card_view:cardElevation="0dp"
+                    card_view:contentPadding="@dimen/isw_content_margin"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/isw_ic_merchant_settings"
+                            android:layout_marginBottom="@dimen/isw_content_small_margin" />
+
+                        <TextView
+                            android:id="@+id/cardTitle"
+                            style="@style/ISW.PaymentOptionTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:text="Merchant Settings" />
+
+                        <TextView
+                            android:id="@+id/cardDescription"
+                            style="@style/ISW.OptionSubTitle"
+                            android:layout_width="match_parent"
+                            android:text="Setup merchant transaction information: e.g. amount limit"
+                            android:gravity="start"
+                            />
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnTerminalSettings"
+                    style="@style/ISW.PaymentOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    card_view:cardBackgroundColor="@color/iswPaymentOptionBg"
+                    card_view:cardCornerRadius="@dimen/isw_corner_radius"
+                    card_view:cardElevation="0dp"
+                    card_view:contentPadding="@dimen/isw_content_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/isw_ic_terminal_config"
+                            android:layout_marginBottom="@dimen/isw_content_small_margin" />
+
+
+                        <TextView
+                            android:id="@+id/terminalSettingsTitle"
+                            style="@style/ISW.PaymentOptionTitle"
+                            android:layout_width="match_parent"
+                            android:layout_margin="0dp"
+                            android:text="Terminal Settings"
+                            app:layout_constraintBottom_toTopOf="@+id/terminalSettingsDescription"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/terminalSettingsDescription"
+                            style="@style/ISW.OptionSubTitle"
+                            android:layout_width="match_parent"
+                            android:gravity="start"
+                            android:text="Setup terminal parameters: e.g. terminal id"
+                            app:autoSizeTextType="uniform"
+                            />
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnSupervisorSettings"
+                    style="@style/ISW.PaymentOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    card_view:cardBackgroundColor="@color/iswPaymentOptionBg"
+                    card_view:cardCornerRadius="@dimen/isw_corner_radius"
+                    card_view:cardElevation="0dp"
+                    card_view:contentPadding="@dimen/isw_content_padding"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/isw_ic_supervisor_settings"
+                            android:layout_marginBottom="@dimen/isw_content_small_margin" />
+
+                        <TextView
+                            android:id="@+id/supervisorSettingsTitle"
+                            style="@style/ISW.PaymentOptionTitle"
+                            android:layout_width="match_parent"
+                            android:layout_margin="0dp"
+                            android:text="Supervisor Settings" />
+
+                        <TextView
+                            android:id="@+id/supervisorSettingsDescription"
+                            style="@style/ISW.OptionSubTitle"
+                            android:layout_width="match_parent"
+                            android:text="Setup supervisor configuration: e.g. supervisor card"
+                            android:gravity="start"
+                            app:autoSizeTextType="uniform" />
+
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</LinearLayout>

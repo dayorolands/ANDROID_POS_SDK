@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    style="@style/ISW.ContainerPadding"
+    android:paddingTop="30dp"
+    tools:context=".modules.transactions.purchase.modules.result.IswPurchaseResultFragment">
+
+
+
+    <ImageView
+        android:id="@+id/resultIcon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/isw_success_tick"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/isw_container_margin"
+        />
+
+    <TextView
+        android:id="@+id/resultTitle"
+        style="@style/ISW.PaymentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:text="Payment Successful!"
+        />
+
+    <TextView
+        android:id="@+id/resultSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/isw_container_margin"
+        android:gravity="center"
+        android:textSize="14sp"
+        tools:text="You have successfully paid N1000 to saad"
+        />
+
+
+
+
+    <LinearLayout
+        android:id="@+id/successButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/printBtn"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswColorPrimary">
+
+            <TextView
+                android:id="@+id/printBtnTitle"
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswTextColorPrimary"
+                android:text="@string/isw_title_print_receipt"
+
+                />
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnEReceipt"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswColorPrimary"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswTextColorPrimary"
+            android:text="@string/isw_title_email_receipt"
+
+                />
+        </androidx.cardview.widget.CardView>
+
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/closeBtn"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/isw_content_small_margin"
+            android:layout_marginEnd="@dimen/isw_content_small_margin"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswColorGrey">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswTextColorDark"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:drawableLeft="@drawable/isw_ic_close_thin"
+                android:drawableStart="@drawable/isw_ic_close_thin"
+                android:text="@string/isw_action_close"
+                />
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/failureButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCard"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswPrimaryColorLightBg">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswColorPrimary"
+                android:text="Try paying with Card"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnPayCode"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswPrimaryColorLightBg">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswColorPrimary"
+                android:text="Try paying with PayCode"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnQr"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswPrimaryColorLightBg">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswColorPrimary"
+                android:text="Try paying with QR"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnUssd"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswPrimaryColorLightBg">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswColorPrimary"
+                android:text="Try paying with USSD"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCash"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswPrimaryColorLightBg">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswColorPrimary"
+                android:text="Try paying with Cash"
+                />
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnCancel"
+                style="@style/ISW.Button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/isw_content_small_margin"
+                android:layout_marginEnd="@dimen/isw_content_small_margin"
+                android:layout_marginBottom="@dimen/isw_content_mid_margin"
+                app:cardCornerRadius="@dimen/isw_corner_radius"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/iswColorGrey">
+
+                <TextView
+                    style="@style/ISW.ButtonText"
+                    android:textColor="@color/iswTextColorDark"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/isw_ic_close_thin"
+                    android:drawableStart="@drawable/isw_ic_close_thin"
+                    android:text="Cancel Payment"
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnRetry"
+                style="@style/ISW.Button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/isw_content_small_margin"
+                android:layout_marginStart="@dimen/isw_content_small_margin"
+                android:layout_marginBottom="@dimen/isw_content_mid_margin"
+                app:cardCornerRadius="@dimen/isw_corner_radius"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/iswColorGrey">
+
+                <TextView
+                    style="@style/ISW.ButtonText"
+                    android:textColor="@color/iswTextColorDark"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:drawableLeft="@drawable/isw_ic_retry"
+                    android:drawableStart="@drawable/isw_ic_retry"
+                    android:text="Try again"
+                    />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/errorPrintBtn"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/isw_content_mid_margin"
+            app:cardCornerRadius="@dimen/isw_corner_radius"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/iswColorPrimary">
+
+            <TextView
+                style="@style/ISW.ButtonText"
+                android:textColor="@color/iswTextColorPrimary"
+                android:text="@string/isw_title_print_receipt"
+
+                />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+</LinearLayout>

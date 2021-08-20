@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorMainBackground"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/isw_content_margin"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monday, Jan 13"
+                android:textColor="@color/colorTextHighlight"
+                />
+
+            <TextView
+                android:id="@+id/tvCompanyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dateTextViewTransactionsType"
+                android:text="Boma n Daughters Ltd."
+                android:layout_marginTop="@dimen/isw_content_small_margin"
+                android:layout_marginBottom="@dimen/isw_content_small_margin"
+                android:textColor="@color/iswTextColorDark"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textColor="@color/iswTextColorDark"
+                android:text="What would you like to do?" />
+
+            <Button
+                android:id="@+id/testPrintBMP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRINT BMP"
+                android:visibility="gone"/>
+            <Button
+                android:id="@+id/testCanPrint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CAN PRINT"
+                android:visibility="gone"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTransactionTypes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/isw_content_mid_margin"
+            app:spanCount="2"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/list_item_transaction"
+            tools:itemCount="4"
+            />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

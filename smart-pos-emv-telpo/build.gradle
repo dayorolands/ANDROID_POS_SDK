@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'com.getkeepsafe.dexcount'
+
+ext {
+    artifact = 'smart-pos-emv-telpo' // This artifact name should be the same with library module name
+}
+
+android {
+    compileSdkVersion targetSdk
+
+    defaultConfig {
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        versionCode versionCode
+        versionName versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexKeepFile file('multidex-config.txt')
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled minified
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        animationsDisabled true
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
+
+
+    compileOptions {
+        targetCompatibility javaVersion
+        sourceCompatibility javaVersion
+    }
+
+    configurations {
+        all*.exclude group: "com.google.zxing"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '.so'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "org.koin:koin-core:$koin_version"
+    // kotlin coroutine libs
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+    implementation project(":smart-pos-core")
+}
+
+// maven-installer
+apply from: maven_installer
+// bintray
+apply from: bintray_installer

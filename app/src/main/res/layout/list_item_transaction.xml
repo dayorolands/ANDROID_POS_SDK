@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/btnPurchase"
+    style="@style/AppTheme.PaymentOption"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_margin="@dimen/isw_content_mid_margin"
+    app:cardBackgroundColor="@color/paymentOptionBg"
+    app:cardCornerRadius="@dimen/isw_corner_radius"
+    app:cardElevation="0dp"
+    app:contentPadding="@dimen/isw_content_mid_margin"
+    app:layout_constraintEnd_toStartOf="@+id/btnPreAuth"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/transactionIcon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_margin="@dimen/isw_content_margin"
+            android:src="@drawable/ic_transaction_purchase" />
+
+        <TextView
+            android:id="@+id/transactionTitle"
+            style="@style/AppTheme.PaymentOptionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Purchase" />
+
+        <TextView
+            android:id="@+id/transactionSubtitle"
+            style="@style/AppTheme.OptionSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/isw_content_mid_margin"
+            android:text="Pay for items purchased" />
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

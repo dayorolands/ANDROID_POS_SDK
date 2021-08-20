@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="iswStatusBarColor">#C0C6CB</color>
+
+    <color name="iswColorPrimary">#3C95F9</color>
+    <color name="iswColorPrimaryDark">#00365b</color>
+    <color name="iswColorPrimaryLight">#00b0f8</color>
+
+
+    <color name="iswPrimaryIconColor">#E4EDF7</color>
+    <color name="iswPrimaryColorLightBg">#EBF4FE</color>
+
+
+    <color name="iswTextColorPrimary">#FFF</color>
+    <color name="iswColorMainBackground">#F2F4F6</color>
+
+
+    <color name="iswTextColorDark">#FF181B24</color>
+    <color name="iswColorError">#F05050</color>
+    <color name="iswColorErrorHighlight">#26F05050</color>
+
+    <color name="iswHintTextColor">#4D181B24</color>
+    <color name="iswUssdBackground">#F0F7FF</color>
+    <color name="iswPaymentOptionBg">#FFF</color>
+
+    <color name="iswColorGrey">#E7E8E9</color>
+    <color name="iswColorSuccess">#2fcd6f</color>
+    <color name="iswColorSuccessHighlight">#262EB57E</color>
+
+    <color name="iswVerveCardColorBgLeft">#748CA6</color>
+    <color name="iswVerveCardColorBgRight">#044362</color>
+
+    <color name="iswNormalCardColorBgLeft">#181B24</color>
+    <color name="iswNormalCardColorBgRight">#1E2B50</color>
+
+
+    <color name="iswColorTransparent">#66000000</color>
+
+    <color name="iswColorAltOptionBg">#F5F9FB</color>
+    <color name="iswColorAltOptionBorder">#E4E9EC</color>
+
+
+    <color name="iswColorWhite">#FFF</color>
+</resources>

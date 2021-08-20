@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="IswProgress">
+        <attr name="isw_progress_value" format="integer" />
+        <attr name="isw_progress_max" format="integer" />
+
+        <attr name="isw_progress_text_size" format="dimension" />
+        <attr name="isw_progress_text_color" format="color" />
+
+        <attr name="isw_progress_suffix_text" format="string" />
+    </declare-styleable>
+
+</resources>

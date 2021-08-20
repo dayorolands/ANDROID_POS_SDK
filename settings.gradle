@@ -1,0 +1,1 @@
+include ':app', ':smart-pos-core', ':smart-pos-usb', ':smart-pos-emv-pax', ':smart-pos-emv-telpo'

@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/iswColorMainBackground"
+        app:navigationIcon="@drawable/isw_ic_arrow_back"
+        app:popupTheme="@style/ISW.PopupOverlay" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/isw_content_padding">
+
+            <TextView
+                android:id="@+id/configSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="16dp"
+                android:paddingTop="@dimen/isw_content_padding"
+                android:paddingBottom="@dimen/isw_content_padding"
+                android:text="Configured To:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/terminalUploadContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding">
+
+                <TextView
+                    android:id="@+id/tvTerminalConfig"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:paddingTop="@dimen/isw_content_padding"
+                    android:paddingBottom="@dimen/isw_content_padding"
+                    android:text="Load Terminal Configuration"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:id="@+id/btnUploadConfig"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="15dp"
+                    android:src="@drawable/isw_ic_download"
+                    android:tint="@color/iswColorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/iswColorGrey"
+                    app:layout_constraintTop_toBottomOf="@id/tvTerminalConfig" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/merchantDetailsDownloadContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding">
+
+                <TextView
+                    android:id="@+id/tvMerchantDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/btnDownloadMerchantDetails"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="@string/isw_title_downloading_merchant_details" />
+
+                <TextView
+                    android:id="@+id/tvMerchantDetailsDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMerchantDetails"
+                    tools:text="Mon 23, 2018" />
+
+                <ImageView
+                    android:id="@+id/btnDownloadMerchantDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="15dp"
+                    android:src="@drawable/isw_ic_download"
+                    android:tint="@color/iswColorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/progressMerchantDetailsDownload"
+                    style="@style/ISW.Progress"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_margin="15dp"
+                    android:layout_marginStart="@dimen/isw_content_padding"
+                    android:layout_marginEnd="@dimen/isw_content_padding"
+                    android:indeterminateOnly="true"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/iswColorGrey"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_margin"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:layout_marginEnd="@dimen/isw_content_margin"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+
+                <TextView
+                    android:id="@+id/tvIsKimono"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    android:layout_weight="3"
+                    android:gravity="bottom"
+                    android:text="Configure Kimono"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Switch
+                    android:id="@+id/switchKimono"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:padding="@dimen/isw_content_small_margin"
+                    android:textSize="16sp"
+                    android:theme="@style/ISW.Switch"
+                    tools:checked="true" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_margin"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:layout_marginEnd="@dimen/isw_content_margin"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+
+                <TextView
+                    android:id="@+id/tvIsNibbsTest"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    android:layout_weight="3"
+                    android:gravity="bottom"
+                    android:text="Switch To NIBBS Test"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Switch
+                    android:id="@+id/switchToNIBBS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:padding="@dimen/isw_content_small_margin"
+                    android:textSize="16sp"
+                    android:theme="@style/ISW.Switch"
+                    tools:checked="true" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_margin"
+                android:layout_marginEnd="@dimen/isw_content_margin"
+                android:layout_marginBottom="@dimen/isw_content_margin"
+                android:background="@color/iswColorGrey" />
+
+
+            <!-- Terminal Information -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_margin"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="@dimen/isw_content_margin"
+                android:layout_marginBottom="@dimen/isw_content_small_margin"
+                android:text="Terminal Information:"
+                android:textColor="@color/iswColorPrimary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btnDownloadKeys"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_merchant_name_and_location"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiMerchantNameAndLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etMerchantNameAndLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_title_merchant_name_and_location"
+                        android:inputType="textCapWords"
+                        android:maxLength="40"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_merchant_address"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiMerchantAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etMerchantAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_title_merchant_address"
+                        android:inputType="text"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/isw_content_margin"
+                android:background="@color/iswColorGrey" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_terminal_id1"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiTerminalId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etTerminalId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_title_terminal_id1"
+                        android:inputType="textCapCharacters"
+                        android:maxLength="8"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/terminalId2Container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_terminal_id2"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiTerminalId2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etTerminalId2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_title_terminal_id2"
+                        android:inputType="textCapCharacters"
+                        android:maxLength="8"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+
+            <!-- Load Keys Container (NIBBS config) -->
+            <LinearLayout
+                android:id="@+id/terminalDownloadContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:visibility="visible">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_padding"
+                    android:layout_marginTop="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_padding"
+                    android:layout_marginBottom="@dimen/isw_content_margin">
+
+                    <TextView
+                        android:id="@+id/tvKeys"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/btnDownloadKeys"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="@string/isw_title_download_keys" />
+
+                    <TextView
+                        android:id="@+id/tvKeyDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvKeys"
+                        tools:text="Mon 23, 2018" />
+
+                    <ImageView
+                        android:id="@+id/btnDownloadKeys"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="15dp"
+                        android:src="@drawable/isw_ic_download"
+                        android:tint="@color/iswColorPrimaryDark"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <ProgressBar
+                        android:id="@+id/progressKeyDownload"
+                        style="@style/ISW.Progress"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:layout_marginStart="@dimen/isw_content_padding"
+                        android:layout_marginEnd="@dimen/isw_content_padding"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/iswColorGrey"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/terminalInfoDownloadContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_padding"
+                    android:layout_marginEnd="@dimen/isw_content_padding">
+
+                    <TextView
+                        android:id="@+id/tvTerminalInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/btnDownloadTerminalConfig"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="@string/isw_title_download_terminal_configuration" />
+
+                    <TextView
+                        android:id="@+id/tvTerminalInfoDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTerminalInfo"
+                        tools:text="Mon 23, 2018" />
+
+                    <ImageView
+                        android:id="@+id/btnDownloadTerminalConfig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:padding="15dp"
+                        android:src="@drawable/isw_ic_download"
+                        android:tint="@color/iswColorPrimaryDark"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <ProgressBar
+                        android:id="@+id/progressTerminalDownload"
+                        style="@style/ISW.Progress"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_margin="15dp"
+                        android:layout_marginStart="@dimen/isw_content_padding"
+                        android:layout_marginEnd="@dimen/isw_content_padding"
+                        android:indeterminateOnly="true"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/iswColorGrey"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_merchant_id1"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiMerchantId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/etMerchantId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_title_merchant_id1"
+                        android:inputType="textCapCharacters"
+                        android:maxLength="15"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/merchantId2Container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_merchant_id2"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiMerchantId2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/etMerchantId2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_title_merchant_id2"
+                        android:inputType="textCapCharacters"
+                        android:maxLength="15"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_merchant_category_code"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiMerchantCategoryCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/etMerchantCategoryCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_title_merchant_category_code"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_currency_code1"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiCurrencyCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/etCurrencyCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="566"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/currencyCode2Container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_currency_code2"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiCurrencyCode2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/etCurrencyCode2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/isw_dollar_currency"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_country_code"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiCountryCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etCountryCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="0566"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_merchant_alias"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiMerchantAlias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etMerchantAlias"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="000001"
+                        android:inputType="number"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_merchant_code"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiMerchantCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etMerchantCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="MX1065"
+                        android:inputType="textCapCharacters"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="@string/isw_title_terminal_capabilities"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiCapabilities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etCapabilities"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="0ABDCD"
+                        android:inputType="textCapCharacters"
+                        android:maxLength="6"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/agentId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="Agent's ID"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiAgentId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etAgentId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="12345678"
+                        android:inputType="number"
+                        android:maxLength="13"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/agentEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="Agent's Email"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiAgentEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etAgentEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="abc@gmail.com"
+                        android:inputType="textEmailAddress"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <!-- Server config -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_margin"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="@dimen/isw_content_margin"
+                android:layout_marginBottom="@dimen/isw_content_small_margin"
+                android:text="@string/isw_title_server_config"
+                android:textColor="@color/iswColorPrimary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btnDownloadKeys"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="@dimen/isw_content_margin"
+                android:background="@color/iswColorGrey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+
+                <TextView
+                    android:id="@+id/tvCallHomeTime"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    android:layout_weight="3"
+                    android:gravity="bottom"
+                    android:text="Call Home Time"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiCallHomeTime"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etCallHomeTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:hint="60"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:padding="@dimen/isw_content_small_margin"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:layout_marginBottom="@dimen/isw_content_padding"
+                android:background="@color/iswColorGrey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+
+                <TextView
+                    android:id="@+id/tvServerTimeout"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    android:layout_weight="3"
+                    android:gravity="bottom"
+                    android:text="Server Timeout"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiServerTimeout"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/etServerTimeout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:hint="60"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:padding="@dimen/isw_content_small_margin"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:layout_marginBottom="@dimen/isw_content_padding"
+                android:background="@color/iswColorGrey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    android:layout_weight="3"
+                    android:gravity="bottom"
+                    android:text="Server Port"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiServerPort"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/etServerPort"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789"
+                        android:hint="44345"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:padding="@dimen/isw_content_small_margin"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:layout_marginBottom="@dimen/isw_content_padding"
+                android:background="@color/iswColorGrey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    android:layout_weight="3"
+                    android:gravity="bottom"
+                    android:text="Server IP"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiServerIP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:layout_weight="2"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etServerIP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789."
+                        android:hint="123.4.567.89"
+                        android:inputType="number"
+                        android:padding="@dimen/isw_content_small_margin"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:layout_marginBottom="@dimen/isw_content_padding"
+                android:background="@color/iswColorGrey" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:text="Server URL"
+                    android:textColor="@color/iswTextColorDark"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tiServerUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/isw_content_margin"
+                    android:layout_marginEnd="@dimen/isw_content_margin"
+                    android:textColor="@color/iswTextColorDark"
+                    app:hintEnabled="false">
+
+
+                    <EditText
+                        android:id="@+id/etServerUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="https://domain.com/kimono"
+                        android:inputType="textUri"
+                        android:textSize="18sp"
+                        tools:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

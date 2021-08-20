@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Smart POS</string>
+    <string name="action_pay">PAY</string>
+    <string name="terminal_configuration">Terminal Configuration</string>
+    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="enable_usb">Enable Usb</string>
+    <string name="title_activity_cash_back">Purchase with cashback</string>
+</resources>

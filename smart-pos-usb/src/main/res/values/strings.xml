@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">smart-pos-usb</string>
+    <string name="notification_stop_action_text">Stop</string>
+    <string name="notification_text_title">Smart POS</string>
+    <string name="notification_text_content">Service is running in foreground</string>
+    <string name="notification_reconnect_text">Reconnect</string>
+</resources>

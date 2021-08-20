@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/iswColorMainBackground"
+        app:navigationIcon="@drawable/isw_ic_arrow_back"
+        app:popupTheme="@style/ISW.PopupOverlay" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- SDK configuration -->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_margin"
+                android:layout_marginEnd="@dimen/isw_content_margin"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="@dimen/isw_content_small_margin"
+                android:text="@string/isw_sdk_config"
+                android:textSize="12sp"
+                android:textColor="@color/iswColorPrimary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btnDownloadKeys"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:padding="2dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tvMinAmount"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Minimum Amount"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <EditText
+                    android:id="@+id/etMinAmount"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="@dimen/isw_content_small_margin"
+                    android:hint="0.00"
+                    />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:layout_marginBottom="@dimen/isw_content_padding"
+                android:background="@color/iswColorGrey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:padding="2dp"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tvCurrency"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Merchant Local"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <Spinner
+                    android:id="@+id/spLocal"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="@dimen/isw_content_small_margin"
+                    android:hint="s@mple.com"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:layout_marginBottom="@dimen/isw_content_padding"
+                android:background="@color/iswColorGrey" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:padding="2dp"
+                android:layout_marginTop="@dimen/isw_content_margin"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tvMerchantEmail"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:text="Merchant Email"
+                    android:layout_marginBottom="@dimen/isw_content_small_margin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <EditText
+                    android:id="@+id/etMerchantEmail"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:padding="@dimen/isw_content_small_margin"
+                    android:hint="s@mple.com"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/isw_content_padding"
+                android:layout_marginEnd="@dimen/isw_content_padding"
+                android:layout_marginBottom="@dimen/isw_content_padding"
+                android:background="@color/iswColorGrey" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

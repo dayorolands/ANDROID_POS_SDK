@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.CashBackActivity">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/iswColorMainBackground"
+        app:navigationIcon="@drawable/isw_ic_arrow_back"
+        app:popupTheme="@style/ISW.PopupOverlay" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/isw_content_margin"
+        android:paddingHorizontal="@dimen/isw_content_margin">
+
+        <TextView
+            android:id="@+id/tvPurchaseAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/iswTextColorDark"
+            android:text="Purchase Amount"
+            android:layout_marginTop="@dimen/isw_container_margin"
+            />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0.00"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="@color/iswColorPrimary"
+            android:layout_marginTop="@dimen/isw_content_sm_margin"
+            android:background="@drawable/app_cornered_rectangle"
+            android:inputType="numberDecimal"
+            android:gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/tvCashBackAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/isw_content_lg_margin"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/iswTextColorDark"
+            android:text="Cashback withdrawal amount"
+            />
+
+        <EditText
+            android:id="@+id/additionalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0.00"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="@color/iswColorPrimary"
+            android:layout_marginTop="@dimen/isw_content_sm_margin"
+            android:background="@drawable/app_cornered_rectangle"
+            android:inputType="numberDecimal"
+            android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/iswColorPrimary"
+            android:textSize="20sp"
+            android:text="Proceed"
+            android:onClick="doPay"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/isw_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/isw_guideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/isw_guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/isw_guideline" />
+
+    <View
+        android:id="@+id/isw_view2"
+        android:layout_width="70dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/isw_round_handle_gray"
+        app:layout_constraintBottom_toTopOf="@+id/isw_naira"
+        app:layout_constraintEnd_toEndOf="@id/isw_guideline3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/isw_guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/isw_naira"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="start|center_vertical"
+        android:padding="10dp"
+        android:text="@string/isw_naira"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        app:cornerRadius="8dp"
+        app:elevation="10dp"
+        app:icon="@drawable/isw_ic_payment"
+        app:layout_constraintBottom_toTopOf="@+id/isw_dollar"
+        app:layout_constraintEnd_toStartOf="@+id/isw_guideline3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/isw_guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/isw_view2"
+        app:rippleColor="@android:color/darker_gray"
+        app:strokeColor="@color/iswColorPrimary"
+        app:strokeWidth="1dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/isw_dollar"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start|center_vertical"
+        android:padding="10dp"
+        android:text="@string/isw_dollar"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        app:cornerRadius="8dp"
+        app:elevation="10dp"
+        app:icon="@drawable/isw_ic_payment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/isw_guideline3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/isw_guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/isw_naira"
+        app:strokeColor="@color/iswColorPrimary"
+        app:strokeWidth="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

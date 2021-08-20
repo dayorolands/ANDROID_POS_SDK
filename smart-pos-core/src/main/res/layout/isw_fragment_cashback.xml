@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ISW.ContainerPadding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/isw_cancel_button" />
+
+    <TextView
+        android:id="@+id/cardFlowTitle"
+        style="@style/ISW.PaymentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        tools:text="Pre Auth"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_content_mid_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="Purchase: "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_mid_margin"
+            android:layout_marginLeft="@dimen/isw_content_mid_margin"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/iswColorPrimary"
+            android:textSize="12sp"
+            tools:text="N230.00" />
+
+        <TextView
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:text="Cash-back: "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvCashBackAmount"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_mid_margin"
+            android:layout_marginLeft="@dimen/isw_content_mid_margin"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/iswColorPrimary"
+            android:textSize="12sp"
+            tools:text="N230.00" />
+
+    </LinearLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/cardFlowContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBackground">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorMainBackground"
+        app:navigationIcon="@drawable/isw_ic_arrow_back"
+        app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_content_margin"
+        android:layout_marginStart="@dimen/isw_content_margin"
+        android:layout_marginEnd="@dimen/isw_content_margin"
+        app:contentPadding="@dimen/isw_content_small_padding"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_info"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select the default transaction for the home page"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDefaultTransactionTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/isw_content_mid_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/list_item_transaction_config"
+        tools:itemCount="3"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#d2d2d2"
+        android:layout_marginStart="@dimen/isw_container_margin"
+        android:layout_marginEnd="@dimen/isw_container_margin"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOtherTransactionTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/isw_content_mid_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/list_item_transaction_config"
+        tools:itemCount="3"
+        />
+
+</LinearLayout>

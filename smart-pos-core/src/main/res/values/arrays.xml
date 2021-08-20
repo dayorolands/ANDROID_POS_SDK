@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="isw_dummy_plans">
+        <item>First Plan</item>
+        <item>Second Plan</item>
+        <item>Third Plan</item>
+        <item>Fourth Plan</item>
+        <item>Fifth Plan</item>
+    </string-array>
+    <string-array name="isw_dummy_plan_prices">
+        <item>50</item>
+        <item>200</item>
+        <item>750</item>
+        <item>1000</item>
+        <item>2500</item>
+        <item>5000</item>
+    </string-array>
+    <string-array name="isw_dummy_banks">
+        <item>Select Bank</item>
+        <item>Access Bank Plc</item>
+        <item>ALAT by Wema</item>
+        <item>First Bank</item>
+        <item>FCMB</item>
+        <item>GT Bank</item>
+        <item>Keystone</item>
+    </string-array>
+    <string-array name="isw_dummy_dispute_types">
+        <item>Select Dispute</item>
+        <item>Transaction Failed</item>
+        <item>Reversal Failed</item>
+        <item>Issuer Operator Issue</item>
+        <item>Others</item>
+    </string-array>
+</resources>

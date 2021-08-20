@@ -1,0 +1,335 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+
+    <style name="ISW.MenuItem">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:paddingRight">32dp</item>
+        <item name="android:paddingLeft">32dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+
+
+    <style name="ISW.PaymentContent">
+        <item name="android:layout_marginRight">@dimen/isw_content_margin</item>
+        <item name="android:layout_marginLeft">@dimen/isw_content_margin</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
+
+    <style name="ISW.QrCode">
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginBottom">32dp</item>
+        <item name="android:layout_marginRight">18dp</item>
+        <item name="android:layout_marginLeft">18dp</item>
+    </style>
+
+
+    <style name="ISW.Subtitle">
+        <item name="android:paddingRight">@dimen/isw_content_small_padding</item>
+        <item name="android:paddingTop">@dimen/isw_content_small_padding</item>
+        <item name="android:paddingBottom">@dimen/isw_content_small_padding</item>
+        <item name="android:paddingLeft">@dimen/isw_content_padding</item>
+    </style>
+
+
+    <style name="ISW.StatusContainer">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingLeft">32dp</item>
+    </style>
+
+    <style name="ISW.FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/iswColorPrimaryDark</item>
+        <item name="colorPrimary">@color/iswColorPrimary</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+
+    <style name="ISW.DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/iswColorPrimaryDark</item>
+        <item name="colorPrimary">@color/iswColorPrimary</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="IswBottomSheet" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/IswBottomSheetBackground</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@android:color/white</item>
+    </style>
+
+    <style name="IswBottomSheetBackground" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="android:background">@drawable/isw_card_background</item>
+    </style>
+
+    <style name="IswDatePicker" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/iswColorPrimary</item>
+    </style>
+
+
+    <style name="ISW.FullScreenDialogStyleTransparent" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/iswColorPrimaryDark</item>
+        <item name="colorPrimary">@color/iswColorPrimary</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- This is important! Don't forget to set window background -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="ISW.Switch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color -->
+        <item name="colorControlActivated">@color/iswColorPrimary</item>
+    </style>
+
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- ////////////////////////////////////////////////////// -->
+
+
+
+
+
+
+
+
+
+    <!-- New valid styles -->
+    <style name="ISW" parent="Theme.AppCompat.Light">
+        <item name="android:windowBackground">@color/iswColorMainBackground</item>
+        <item name="colorPrimary">@color/iswColorPrimary</item>
+        <item name="colorPrimaryDark">@color/iswColorPrimaryDark</item>
+        <item name="colorAccent">@color/iswColorPrimary</item>
+    </style>
+
+    <style name="ISW.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="ISW.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="ISW.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+
+    <style name="ISW.Button">
+        <item name="android:layout_height">@dimen/isw_btn_height</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+
+        <item name="android:layout_marginBottom">@dimen/isw_content_small_margin</item>
+        <item name="android:layout_marginTop">@dimen/isw_content_small_margin</item>
+
+        <item name="android:padding">@dimen/isw_content_padding</item>
+    </style>
+
+
+    <style name="ISW.CancelButton">
+        <item name="android:layout_height">@dimen/isw_btn_height</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+
+        <item name="android:layout_marginBottom">@dimen/isw_content_small_margin</item>
+        <item name="android:layout_marginTop">@dimen/isw_container_margin</item>
+
+        <item name="android:padding">@dimen/isw_content_padding</item>
+    </style>
+
+    <style name="ISW.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/isw_content_small_padding</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingBottom">@dimen/isw_content_padding</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginBottom">@dimen/isw_content_small_margin</item>
+    </style>
+
+    <style name="ISW.ButtonText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/iswTextColorPrimary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ISW.CancelButtonText">
+        <item name="android:textColor">@color/iswColorPrimary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="ISW.EodItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
+    </style>
+
+    <style name="ISW.Progress" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@color/iswColorPrimary</item>
+    </style>
+
+
+    <style name="ISW.Progress.Light" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorAccent">@color/iswColorMainBackground</item>
+    </style>
+
+    <style name="ISW.PaymentTitle">
+        <item name="android:textSize">@dimen/isw_title_size</item>
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:layout_marginTop">@dimen/isw_container_margin</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+
+    <style name="ISW.SubTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/iswTextColorDark</item>
+
+        <item name="android:paddingTop">@dimen/isw_content_small_padding</item>
+        <item name="android:paddingBottom">@dimen/isw_content_small_padding</item>
+
+    </style>
+
+
+
+    <style name="ISW.PaymentOptionTitle" parent="ISW.PaymentTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+
+    <style name="ISW.OptionSubTitle" parent="ISW.SubTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/iswHintTextColor</item>
+
+    </style>
+
+    <style name="ISW.DateHint" parent="ISW.SubTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">italic</item>
+
+    </style>
+
+    <style name="ISW.UssdHint" parent="ISW.SubTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/iswColorPrimary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="ISW.PaymentOption">
+        <item name="android:layout_height">160dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+
+        <item name="android:layout_marginTop">@dimen/isw_content_margin</item>
+        <item name="android:layout_marginBottom">@dimen/isw_content_margin</item>
+    </style>
+
+
+    <style name="ISW.AltOption">
+        <item name="android:layout_height">@dimen/isw_btn_height</item>
+        <item name="android:layout_width">match_parent</item>
+
+        <item name="android:padding">@dimen/isw_content_mid_margin</item>
+        <item name="android:background">@drawable/isw_bg_alt_option</item>
+        <item name="android:gravity">center_vertical</item>
+
+    </style>
+
+
+
+
+
+    <style name="ISW.Theme.TransparentBase" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/iswColorPrimary</item>
+        <item name="colorPrimaryDark">@color/iswColorPrimaryDark</item>
+        <item name="colorAccent">@color/iswColorPrimary</item>
+
+
+        <item name="android:background">@android:color/transparent</item> <!-- Or any transparency or color you need -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+
+
+
+    <style name="ISW.Theme.Transparent" parent="ISW.Theme.TransparentBase" />
+
+    <style name="ISW.ContainerPadding">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+    </style>
+
+    <style name="ISW.OptionIcon">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:padding">@dimen/isw_content_mid_margin</item>
+    </style>
+
+
+
+</resources>

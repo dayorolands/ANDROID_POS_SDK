@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMainBackground"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:paddingTop="@dimen/isw_content_padding"
+        android:paddingBottom="@dimen/isw_content_padding"
+        android:scaleType="fitStart"
+        android:src="@drawable/isw_logo"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/iswColorGrey" />
+
+    <TextView
+        android:id="@+id/history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.MenuItem"
+        android:text="@string/isw_title_history"
+        android:drawableEnd="@drawable/ic_transaction_refunds"
+        android:drawableRight="@drawable/ic_transaction_refunds"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/reports"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.MenuItem"
+        android:text="@string/isw_title_reports"
+        android:drawableEnd="@drawable/ic_menu_report"
+        android:drawableRight="@drawable/ic_menu_report"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.MenuItem"
+        android:text="@string/isw_title_setting"
+        android:drawableEnd="@drawable/ic_menu_settings"
+        android:drawableRight="@drawable/ic_menu_settings"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/transactions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.MenuItem"
+        android:text="@string/isw_title_transaction_config"
+        android:drawableEnd="@drawable/ic_menu_merchant_info"
+        android:drawableRight="@drawable/ic_menu_merchant_info"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.MenuItem"
+        android:text="@string/isw_title_help"
+        android:drawableEnd="@drawable/ic_menu_help"
+        android:drawableRight="@drawable/ic_menu_help"
+        android:textStyle="bold" />
+
+</LinearLayout>

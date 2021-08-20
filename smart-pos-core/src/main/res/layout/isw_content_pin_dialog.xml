@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/iswColorTransparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    tools:context=".modules.menu.settings.SettingsOptionsActivity">
+
+
+
+    <com.interswitchng.smartpos.shared.views.PinEditText
+        android:id="@+id/userPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:cursorVisible="false"
+        android:digits="0123456789"
+        android:gravity="center"
+        android:inputType="numberPassword"
+        android:maxLength="6"
+        android:textIsSelectable="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:textSize="20sp"
+        tools:text="444455"
+        android:textColor="#FFF"
+        android:layout_marginStart="@dimen/isw_content_margin"
+        android:layout_marginEnd="@dimen/isw_content_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+
+    <Button
+        android:id="@+id/one"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:text="1"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/userPin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/two" />
+
+
+    <Button
+        android:id="@+id/two"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:text="2"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/userPin"
+        app:layout_constraintStart_toEndOf="@+id/one"
+        app:layout_constraintEnd_toStartOf="@+id/three" />
+
+    <Button
+        android:id="@+id/three"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:text="3"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/userPin"
+        app:layout_constraintStart_toEndOf="@+id/two"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+    <Button
+        android:id="@+id/four"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:padding="20dp"
+        android:text="4"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/five" />
+
+
+    <Button
+        android:id="@+id/five"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:padding="20dp"
+        android:text="5"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/two"
+        app:layout_constraintStart_toEndOf="@+id/four"
+        app:layout_constraintEnd_toStartOf="@+id/six" />
+
+    <Button
+        android:id="@+id/six"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:padding="20dp"
+        android:text="6"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/three"
+        app:layout_constraintStart_toEndOf="@+id/five"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:id="@+id/seven"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:padding="20dp"
+        android:text="7"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/four"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/eight" />
+
+
+    <Button
+        android:id="@+id/eight"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:text="8"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/five"
+        app:layout_constraintStart_toEndOf="@+id/seven"
+        app:layout_constraintEnd_toStartOf="@+id/nine" />
+
+    <Button
+        android:id="@+id/nine"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:text="9"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eight"
+        app:layout_constraintTop_toBottomOf="@id/six" />
+
+    <Button
+        android:id="@+id/oneZero"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/isw_pin_outline"
+        android:textColor="@color/iswColorMainBackground"
+        android:text="0"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eight"
+        />
+
+    <ImageView
+        android:id="@+id/closeBtn"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/iswColorMainBackground"
+        android:padding="20dp"
+        android:src="@drawable/isw_ic_close"
+        android:tint="@color/iswColorMainBackground"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/seven"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/oneZero"
+        />
+
+
+    <ImageView
+        android:id="@+id/delete"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/iswColorMainBackground"
+        android:padding="20dp"
+        android:tint="@color/iswColorMainBackground"
+        android:src="@drawable/isw_ic_backspace"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/nine"
+        app:layout_constraintStart_toEndOf="@id/oneZero"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

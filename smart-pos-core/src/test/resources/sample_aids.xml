@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<emv>
+
+    <!---EMV CARD SECTION-->
+    <emvcards>
+
+        <!---Verve-->
+        <emvcard>
+            <name>Verve</name>
+            <aid>A0000003710001</aid>
+            <partialmatch>true</partialmatch>
+
+            <keys>
+
+                <key>
+                    <keyidx>04</keyidx>
+                    <expdate>171231</expdate>
+                    <modulus>
+                        D13CD5E1B921E4E0F0D40E2DE14CCE73E3A34ED2DCFA826531D8195641091E37C8474D19B686E8243F089A69F7B18D2D34CB4824F228F7750F96D1EFBDFF881F259A8C04DE64915A3A3D7CB846135F4083C93CDE755BC808886F600542DFF085558D5EA7F45CB15EC835064AA856D602A0A44CD021F54CF8EC0CC680B54B3665ABE74A7C43D02897FF84BB4CB98BC91D
+                    </modulus>
+                    <exponent>03</exponent>
+                    <checksum>8B36A3E3D814CE6C6EBEAAF27674BB7BC67275B1</checksum>
+                </key>
+
+                <key>
+                    <keyidx>03</keyidx>
+                    <expdate>171231</expdate>
+                    <modulus>
+                        d06238b856cf2c8890a7f668ca17c19247498d193a7c11e7105dedeee6a873e8189e50493e9b17547c42ea4fa88bbef30bb6bc2409246ccc95f36622a7f4d92d46444f20b1b24bf63c5b28395d8ef18c23205c2119dfe5fba2fbfc311b2fe8a6a75b35a7dab72d421792a500cdfd8133b8a97d84a49c0bd22d52d06ea5e0ef3e471d47d8370c37aa48b564689d0035d9
+                    </modulus>
+                    <exponent>03</exponent>
+                    <checksum>319F3C608B67F1118C729B0E1516EAB07CB290C8</checksum>
+                </key>
+
+            </keys>
+
+        </emvcard>
+
+
+        <!---AMEX  A000000333010102-->
+        <emvcard>
+            <name>AMEX</name>
+            <aid>A00000002501</aid>
+            <partialmatch>true</partialmatch>
+            <keys>
+                <key>
+                    <keyidx>C8</keyidx>
+                    <expdate>301217</expdate>
+                    <modulus>
+                        BF0CFCED708FB6B048E3014336EA24AA007D7967B8AA4E613D26D015C4FE7805D9DB131CED0D2A8ED504C3B5CCD48C33199E5A5BF644DA043B54DBF60276F05B1750FAB39098C7511D04BABC649482DDCF7CC42C8C435BAB8DD0EB1A620C31111D1AAAF9AF6571EEBD4CF5A08496D57E7ABDBB5180E0A42DA869AB95FB620EFF2641C3702AF3BE0B0C138EAEF202E21D
+                    </modulus>
+                    <exponent>03</exponent>
+                    <checksum>33BD7A059FAB094939B90A8F35845C9DC779BD50</checksum>
+                </key>
+
+                <key>
+                    <keyidx>C9</keyidx>
+                    <expdate>301222</expdate>
+                    <modulus>
+                        B362DB5733C15B8797B8ECEE55CB1A371F760E0BEDD3715BB270424FD4EA26062C38C3F4AAA3732A83D36EA8E9602F6683EECC6BAFF63DD2D49014BDE4D6D603CD744206B05B4BAD0C64C63AB3976B5C8CAAF8539549F5921C0B700D5B0F83C4E7E946068BAAAB5463544DB18C63801118F2182EFCC8A1E85E53C2A7AE839A5C6A3CABE73762B70D170AB64AFC6CA482944902611FB0061E09A67ACB77E493D998A0CCF93D81A4F6C0DC6B7DF22E62DB
+                    </modulus>
+                    <exponent>03</exponent>
+                    <checksum>8E8DFF443D78CD91DE88821D70C98F0638E51E49</checksum>
+                </key>
+
+                <key>
+                    <keyidx>CA</keyidx>
+                    <expdate>301222</expdate>
+                    <modulus>
+                        C23ECBD7119F479C2EE546C123A585D697A7D10B55C2D28BEF0D299C01DC65420A03FE5227ECDECB8025FBC86EEBC1935298C1753AB849936749719591758C315FA150400789BB14FADD6EAE2AD617DA38163199D1BAD5D3F8F6A7A20AEF420ADFE2404D30B219359C6A4952565CCCA6F11EC5BE564B49B0EA5BF5B3DC8C5C6401208D0029C3957A8C5922CBDE39D3A564C6DEBB6BD2AEF91FC27BB3D3892BEB9646DCE2E1EF8581EFFA712158AAEC541C0BBB4B3E279D7DA54E45A0ACC3570E712C9F7CDF985CFAFD382AE13A3B214A9E8E1E71AB1EA707895112ABC3A97D0FCB0AE2EE5C85492B6CFD54885CDD6337E895CC70FB3255E3
+                    </modulus>
+                    <exponent>03</exponent>
+                    <checksum>6BDA32B1AA171444C7E8F88075A74FBFE845765F</checksum>
+                </key>
+            </keys>
+
+        </emvcard>
+    </emvcards>
+</emv>

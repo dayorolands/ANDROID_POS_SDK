@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/iswColorMainBackground"
+            app:navigationIcon="@drawable/isw_ic_arrow_back"
+            app:popupTheme="@style/ISW.PopupOverlay"/>
+
+
+        <TextView
+            android:id="@+id/supervisorStatusHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_margin"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="@dimen/isw_content_margin"
+            android:layout_marginBottom="@dimen/isw_content_small_margin"
+            android:text="Supervisor's access control"
+            android:textColor="@color/iswColorPrimary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiOldPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_margin"
+            android:layout_marginEnd="@dimen/isw_content_margin"
+            android:layout_marginBottom="@dimen/isw_content_margin"
+            android:textColor="@color/iswTextColorDark"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etOldPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Old Password"
+                android:inputType="numberPassword"
+                android:maxLength="6"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiNewPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_margin"
+            android:layout_marginEnd="@dimen/isw_content_margin"
+            android:layout_marginBottom="@dimen/isw_content_margin"
+            android:textColor="@color/iswTextColorDark"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNewPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="New Password"
+                android:inputType="numberPassword"
+                android:maxLength="6"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnChangePassword"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/isw_container_margin"
+            app:cardBackgroundColor="@color/iswColorPrimary"
+            app:cardCornerRadius="@dimen/isw_corner_radius">
+
+            <TextView
+                android:id="@+id/btnChangePasswordText"
+                style="@style/ISW.ButtonText"
+                android:text="Change Admin Password" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnEnrollCard"
+            style="@style/ISW.Button"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/isw_container_margin"
+            app:cardBackgroundColor="@color/iswColorGrey"
+
+            app:cardCornerRadius="@dimen/isw_corner_radius">
+
+            <TextView
+                android:id="@+id/btnConfirmText"
+                style="@style/ISW.ButtonText"
+                android:text="Enroll Supervisor's Card"
+                android:textColor="@color/iswTextColorDark" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/enrollmentSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

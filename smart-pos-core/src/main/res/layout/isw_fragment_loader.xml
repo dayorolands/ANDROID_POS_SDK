@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="#F2FFFFFF">
+
+
+    <!-- Loader -->
+    <ProgressBar
+        android:id="@+id/loader"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:indeterminate="true"
+        android:theme="@style/ISW.Progress"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvLoader"
+        app:layout_constraintTop_toBottomOf="@+id/loader"
+        tools:text="Processing..."
+        tools:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/isw_content_small_margin"
+        android:layout_marginLeft="@dimen/isw_content_small_margin"
+        android:layout_marginTop="@dimen/isw_content_mid_margin"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+
+    <!-- Error Confirmation -->
+
+    <ImageView
+        android:id="@+id/warningIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/isw_ic_warning"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/confirmationText"
+        style="@style/ISW.SubTitle"
+        app:layout_constraintEnd_toEndOf="@+id/confirmationRetry"
+        app:layout_constraintStart_toStartOf="@+id/confirmationCancel"
+        app:layout_constraintTop_toBottomOf="@+id/warningIcon"
+        tools:text="An error occurred, would you like to please try again"
+        tools:visibility="invisible"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_container_margin"
+        android:gravity="center"
+        android:paddingStart="@dimen/isw_container_margin"
+        android:paddingEnd="@dimen/isw_container_margin"
+        android:visibility="gone" />
+
+
+    <Button
+        android:id="@+id/confirmationCancel"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_container_margin"
+        android:drawableStart="@drawable/isw_ic_close_thin"
+        android:drawableLeft="@drawable/isw_ic_close_thin"
+        android:text="@string/isw_action_cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/iswColorError"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/confirmationText"
+        app:layout_constraintEnd_toStartOf="@+id/confirmationRetry"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible"
+        />
+
+    <Button
+        android:id="@+id/confirmationRetry"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_container_margin"
+        android:drawableStart="@drawable/isw_ic_retry"
+        android:drawableLeft="@drawable/isw_ic_retry"
+        android:text="@string/isw_title_try_again"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        android:textColor="@color/iswColorSuccess"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/confirmationText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/confirmationCancel"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ISW.ContainerPadding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/isw_cancel_button" />
+
+
+    <LinearLayout
+        android:id="@+id/billsAmountContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_content_mid_margin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cardFlowTitle"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            tools:text="Payments"
+            android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/tvAmount"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_mid_margin"
+            android:layout_marginLeft="@dimen/isw_content_mid_margin"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/iswColorPrimary"
+            android:textSize="27sp"
+            tools:text="N230.00" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/customerDetailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvBiller"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/isw_content_mid_margin"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            tools:text="Church Of God Mission International" />
+
+        <TextView
+            android:id="@+id/tvItemDescription"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            tools:text="Love Offerings" />
+
+        <TextView
+            android:id="@+id/tvCustomerDescription"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            tools:text="2348124888436" />
+
+</LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/billsInsertCardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/isw_content_padding"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/insertCardHintTitle"
+            style="@style/ISW.PaymentTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:layout_marginTop="0dp"
+            android:text="Insert Card"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/insertCardHint"
+            style="@style/ISW.SubTitle"
+            android:layout_width="match_parent"
+            android:gravity="start"
+            android:text="Insert your Debit/Credit card to perform payment"
+            app:layout_constraintTop_toBottomOf="@id/insertCardHintTitle" />
+
+
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="@dimen/isw_content_margin"
+            android:src="@drawable/isw_ic_insert_card"
+            app:layout_constraintTop_toBottomOf="@id/insertCardHint"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:id="@+id/verifyCustomerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/isw_content_margin"
+            android:padding="@dimen/isw_content_padding"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Verifying customer ..."
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/cardFlowContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:visibility="gone" />
+
+
+
+</LinearLayout>

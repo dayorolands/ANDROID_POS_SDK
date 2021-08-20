@@ -1,0 +1,55 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = publishedGroupId // Maven Group ID for the artifact
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom.project {
+            packaging 'aar'
+            groupId publishedGroupId
+            artifactId artifact
+
+            // Add your description here
+            name libraryName
+            description libraryDescription
+            url siteUrl
+
+            // Set your license
+            licenses {
+                license {
+                    name licenseName
+                    url licenseUrl
+                }
+            }
+            developers {
+                developer {
+                    id developerId
+                    name developerName
+                    email developerEmail
+                }
+            }
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+
+            }
+        }
+        pom.withXml {
+            // Define this explicitly if using implementation or api configurations
+            def dependenciesNode = asNode().getAt('dependencies')[0] ?: asNode().appendNode('dependencies')
+            // Iterate over the implementation dependencies (we don't want the test ones), adding a <dependency> node for each
+            configurations.implementation.allDependencies.each {
+                // Ensure dependencies such as fileTree are not included.
+                if (it.name != 'unspecified') {
+                    def dependencyNode = dependenciesNode.appendNode('dependency')
+                    dependencyNode.appendNode('groupId', it.group)
+                    dependencyNode.appendNode('artifactId', it.name)
+                    dependencyNode.appendNode('version', it.version)
+                }
+            }
+        }
+
+    }
+}

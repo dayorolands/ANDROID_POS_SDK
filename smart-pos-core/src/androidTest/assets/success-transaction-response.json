@@ -1,0 +1,19 @@
+{
+  "id": 3382523,
+  "payableId": 29778,
+  "amount": 10000,
+  "surcharge": 0,
+  "transactionReference": "BWg0dVqgjAG3kow1htKhR1dxL",
+  "responseCode": "00",
+  "merchantCode": "MX5882",
+  "merchantCustomerName": "280-820-589",
+  "channel": "QR",
+  "currencyCode": "566",
+  "paymentCancelled": false,
+  "dateOfPayment": "1547569017007",
+  "remittanceAmount": 0,
+  "responseDescription": "Transaction successful",
+  "stan": "005609",
+  "terminalId": "2069018M",
+  "merchantName": "IBP000000001384"
+}

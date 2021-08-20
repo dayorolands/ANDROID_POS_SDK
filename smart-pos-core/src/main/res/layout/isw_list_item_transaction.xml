@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="@dimen/isw_content_padding">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/statusContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/iswColorSuccessHighlight"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="0dp"
+        app:contentPaddingBottom="@dimen/isw_content_small_padding"
+        app:contentPaddingLeft="@dimen/isw_content_padding"
+        app:contentPaddingRight="@dimen/isw_content_padding"
+        app:contentPaddingTop="@dimen/isw_content_small_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/iswColorSuccess"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="Success" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_content_small_margin"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@id/tvPaymentType"
+        app:layout_constraintStart_toEndOf="@+id/statusContainer"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Mon, 23 jul 2019" />
+
+    <TextView
+        android:id="@+id/tvPaymentType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/isw_content_small_margin"
+        android:gravity="end"
+        android:textColor="@color/iswTextColorDark"
+        android:textSize="12sp"
+        android:layout_marginRight="@dimen/isw_content_small_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvTransactionType"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="CARD" />
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_weight="2"
+        android:textColor="@color/iswTextColorDark"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tvTransactionType"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusContainer"
+        tools:text="10,000.00" />
+
+    <TextView
+        android:id="@+id/tvTransactionType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPaymentType"
+        tools:text="PURCHASE" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

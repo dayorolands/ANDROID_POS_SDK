@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.menu.report.ReportActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/iswColorMainBackground"
+        app:contentInsetStart="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/isw_ic_arrow_back"
+        app:popupTheme="@style/ISW.PopupOverlay" />
+
+    <LinearLayout
+        android:id="@+id/btnSelectStartDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/isw_cornered_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnSelectEndDate"
+        app:layout_constraintStart_toStartOf="@+id/eodSummaryContainer"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:id="@+id/tvStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_small_margin"
+            android:layout_marginEnd="@dimen/isw_content_small_margin"
+            android:text="@string/isw_hint_select_start_a_date"
+            android:textSize="@dimen/isw_text_sm" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/isw_ic_calendar"
+            android:tint="@color/iswColorSuccess" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnSelectEndDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/isw_cornered_rectangle"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/isw_button_eod"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/isw_content_small_margin"
+            android:layout_marginEnd="@dimen/isw_content_small_margin"
+            android:text="@string/isw_hint_select_end_a_date"
+            android:textSize="@dimen/isw_text_sm" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/isw_ic_calendar"
+            android:tint="@color/iswColorSuccess" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDate"
+        style="@style/ISW.DateHint"
+        app:layout_constraintBottom_toTopOf="@+id/eodSummaryContainer"
+        app:layout_constraintEnd_toEndOf="@+id/btnSelectStartDate"
+        app:layout_constraintStart_toStartOf="@+id/btnSelectStartDate"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectStartDate"
+        tools:text="30 Jun, 2019" />
+
+    <TextView
+        android:id="@+id/tvEndDate"
+        style="@style/ISW.DateHint"
+        app:layout_constraintBottom_toTopOf="@+id/eodSummaryContainer"
+        app:layout_constraintEnd_toEndOf="@+id/btnSelectEndDate"
+        app:layout_constraintStart_toStartOf="@+id/btnSelectEndDate"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectEndDate"
+        tools:text="30 Jun, 2019" />
+
+    <Button
+        android:id="@+id/isw_button_eod"
+        style="@style/ISW.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:backgroundTint="@color/iswColorPrimary"
+        android:textColor="@color/iswColorWhite"
+        android:text="@string/isw_print_eod_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnSelectStartDate"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSelectStartDate"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/eodSummaryContainer"
+        style="@style/ISW.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/isw_content_small_margin"
+        android:layout_marginTop="15dp"
+        app:cardBackgroundColor="@color/iswColorWhite"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerTransactionTypes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectStartDate">
+
+        <TextView
+            android:id="@+id/tvEodSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/isw_content_mid_margin"
+            android:text="End of Day Summary"
+            android:textColor="@color/iswTextColorDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/collapseIcon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/isw_content_mid_margin"
+            android:src="@drawable/isw_ic_chevron_down"
+            android:tint="@color/iswTextColorDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/eodSummaryProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/isw_content_margin"
+            android:padding="@dimen/isw_content_padding"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/eodSummaryDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txnVolumeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_small_margin"
+                android:layout_marginEnd="@dimen/isw_content_small_margin"
+                android:text="Transaction Volume"
+                android:textColor="@color/iswTextColorDark"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/isw_content_mid_margin"
+                android:columnCount="3"
+                android:rowCount="2">
+
+                <TextView
+                    style="@style/ISW.EodItem"
+                    android:text="@string/isw_eod_total_label" />
+
+                <TextView
+                    style="@style/ISW.EodItem"
+                    android:text="@string/isw_eod_success_label"
+                    android:textColor="@color/iswColorSuccess" />
+
+                <TextView
+                    style="@style/ISW.EodItem"
+                    android:text="@string/isw_eod_failed_label"
+                    android:textColor="@color/iswColorError" />
+
+                <TextView
+                    android:id="@+id/tvTotalVolume"
+                    style="@style/ISW.EodItem"
+                    tools:text="63,200" />
+
+                <TextView
+                    android:id="@+id/tvTotalSuccessVolume"
+                    style="@style/ISW.EodItem"
+                    tools:text="62,600" />
+
+                <TextView
+                    android:id="@+id/tvTotalFailedVolume"
+                    style="@style/ISW.EodItem"
+                    tools:text="600" />
+            </GridLayout>
+
+            <TextView
+                android:id="@+id/txnValueLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/isw_content_small_margin"
+                android:layout_marginEnd="@dimen/isw_content_small_margin"
+                android:text="Transaction Value"
+                android:textColor="@color/iswTextColorDark"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:columnCount="3"
+                android:rowCount="2">
+
+                <TextView
+                    style="@style/ISW.EodItem"
+                    android:text="@string/isw_eod_total_label" />
+
+                <TextView
+                    style="@style/ISW.EodItem"
+                    android:text="@string/isw_eod_success_label"
+                    android:textColor="@color/iswColorSuccess" />
+
+                <TextView
+                    style="@style/ISW.EodItem"
+                    android:text="@string/isw_eod_failed_label"
+                    android:textColor="@color/iswColorError" />
+
+                <TextView
+                    android:id="@+id/tvTotalValue"
+                    style="@style/ISW.EodItem"
+                    tools:text="63,200" />
+
+                <TextView
+                    android:id="@+id/tvTotalSuccessValue"
+                    style="@style/ISW.EodItem"
+                    tools:text="62,600" />
+
+                <TextView
+                    android:id="@+id/tvTotalFailedValue"
+                    style="@style/ISW.EodItem"
+                    tools:text="600" />
+            </GridLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Spinner
+        android:id="@+id/spinnerTransactionTypes"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_margin="@dimen/isw_content_small_margin"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eodSummaryContainer" />
+
+    <ProgressBar
+        android:id="@+id/initialProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/isw_content_margin"
+        android:padding="@dimen/isw_content_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvResultHint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="No Results" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTransactions"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTransactionTypes" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

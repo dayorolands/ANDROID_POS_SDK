@@ -1,0 +1,11 @@
+{
+  "responseCode": "00",
+  "responseDescription": "Successful",
+  "date": "2018-11-23T16:21:22",
+  "reference": "46524",
+  "bankShortCode": "*737*6*46524#",
+  "defaultShortCode": "*322*419*051691201*46524#",
+  "terminalId": "2069018M",
+  "transactionReference": "TRSuiKz3mpqoXmDsW7bqiiZsZ",
+  "qrCodeData": "some qr code data"
+}

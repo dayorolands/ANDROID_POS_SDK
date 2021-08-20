@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F4F6"
+    tools:context=".activities.KeypadActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/homeToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme.PaymentOptionTitle"
+        android:text="Amount"
+        app:layout_constraintBottom_toTopOf="@+id/amountContainer"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/amountContainer"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/otherAmountContainer"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:padding="@dimen/isw_content_padding">
+
+            <TextView
+                style="@style/AppTheme.KeyPadButtonText"
+                android:text="\u20A6"
+                android:textSize="32sp"
+                android:textStyle="normal"
+                android:textColor="#848E96"
+                />
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/isw_dummy_price"
+                android:textColor="@color/iswColorPrimary"
+                android:textSize="38sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvOtherAmount"
+        style="@style/AppTheme.PaymentOptionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cash back amount"
+        app:layout_constraintBottom_toTopOf="@+id/otherAmountContainer"
+        app:layout_constraintTop_toBottomOf="@id/amountContainer" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/otherAmountContainer"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/one"
+        app:layout_constraintTop_toBottomOf="@id/tvOtherAmount"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:padding="@dimen/isw_content_padding">
+
+            <TextView
+                style="@style/AppTheme.KeyPadButtonText"
+                android:text="\u20A6"
+                android:textSize="32sp"
+                android:textStyle="normal"
+                android:textColor="#848E96"
+                />
+
+            <TextView
+                android:id="@+id/otherAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/isw_dummy_price"
+                android:textColor="@color/iswColorPrimary"
+                android:textSize="38sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/one"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/four"
+        app:layout_constraintStart_toStartOf="@id/four"
+        app:layout_constraintEnd_toEndOf="@+id/four"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="1"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/two"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/five"
+        app:layout_constraintStart_toStartOf="@+id/five"
+        app:layout_constraintEnd_toEndOf="@+id/five"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="2"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/three"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/six"
+        app:layout_constraintStart_toStartOf="@+id/six"
+        app:layout_constraintEnd_toEndOf="@+id/six"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="3"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/delete"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_height="0dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintTop_toTopOf="@id/one"
+        app:layout_constraintBottom_toTopOf="@+id/done"
+        app:layout_constraintStart_toStartOf="@+id/done"
+        app:layout_constraintEnd_toEndOf="@+id/done"
+        >
+
+        <ImageView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_backspace"
+            android:tint="@color/iswTextColorDark"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/four"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/seven"
+        app:layout_constraintStart_toStartOf="@+id/seven"
+        app:layout_constraintEnd_toEndOf="@+id/seven"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="4"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/five"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/eight"
+        app:layout_constraintStart_toStartOf="@+id/eight"
+        app:layout_constraintEnd_toEndOf="@+id/eight"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="5"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/six"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/nine"
+        app:layout_constraintStart_toStartOf="@+id/nine"
+        app:layout_constraintEnd_toEndOf="@+id/nine"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="6"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/seven"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/oneZero"
+        app:layout_constraintStart_toStartOf="@+id/oneZero"
+        app:layout_constraintEnd_toEndOf="@+id/oneZero"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="7"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/eight"
+        style="@style/AppTheme.KeyPadButton"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/twoZeros"
+        app:layout_constraintStart_toStartOf="@+id/twoZeros"
+        app:layout_constraintEnd_toEndOf="@+id/twoZeros"
+        >
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="8"
+            />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/nine"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toTopOf="@+id/oneZero"
+        app:layout_constraintStart_toStartOf="@+id/threeZeros"
+        app:layout_constraintEnd_toEndOf="@+id/threeZeros">
+
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="9"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/oneZero"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/twoZeros">
+
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="0"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/twoZeros"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/oneZero"
+        app:layout_constraintEnd_toStartOf="@+id/threeZeros" >
+
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="00"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/threeZeros"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/twoZeros"
+        app:layout_constraintEnd_toStartOf="@+id/done">
+
+        <TextView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:text="000"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/done"
+        style="@style/AppTheme.KeyPadButton"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius"
+        app:layout_constraintTop_toBottomOf="@+id/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/threeZeros"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <ImageView
+            style="@style/AppTheme.KeyPadButtonText"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/isw_success_tick" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

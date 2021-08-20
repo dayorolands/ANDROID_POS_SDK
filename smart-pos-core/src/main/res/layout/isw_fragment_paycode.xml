@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/ISW.ContainerPadding"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <!-- change payment button -->
+    <include layout="@layout/isw_change_payment_button" />
+
+    <TextView
+        android:id="@+id/payCodeTitle"
+        style="@style/ISW.PaymentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/isw_content_small_margin"
+        android:text="Pay With PayCode" />
+
+    <TextView
+        android:id="@+id/payCodeSubTitle"
+        style="@style/ISW.SubTitle"
+        android:layout_width="match_parent"
+        android:text="Type in your Pay Code or tap the button to scan the your Pay Code" />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPinContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cardTypeIcon">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/payCode"
+            style="@style/ISW.EditText"
+            android:layout_width="match_parent"
+            android:digits="0123456789"
+            android:hint="Enter your PayCode"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/isw_action_pay"
+        android:textColor="@color/iswTextColorPrimary"
+        app:backgroundTint="@color/isw_primary_btn_color_state"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/amount"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/isw_container_margin"
+        android:background="@color/iswColorGrey"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnScanCode"
+        style="@style/ISW.Button"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/isw_container_margin"
+        app:cardBackgroundColor="@color/iswTextColorPrimary"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="@dimen/isw_corner_radius">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/isw_bg_outline"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/isw_content_mid_margin"
+                android:src="@drawable/isw_ic_qr_code"
+                android:tint="@color/iswColorPrimary" />
+
+            <TextView
+                android:id="@+id/btnConfirmText"
+                style="@style/ISW.ButtonText"
+                android:layout_width="wrap_content"
+                android:text="Scan Pay Code"
+                android:textColor="@color/iswColorPrimary"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
