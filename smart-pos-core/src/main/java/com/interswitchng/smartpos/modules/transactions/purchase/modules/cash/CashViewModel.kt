@@ -11,6 +11,7 @@ import com.interswitchng.smartpos.shared.models.transaction.PaymentType
 import com.interswitchng.smartpos.shared.models.transaction.TransactionResultData
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.CardType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.*
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.kimono.KimonoIsoServiceImpl
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
@@ -62,7 +63,8 @@ internal class CashViewModel(private val isoService: KimonoIsoServiceImpl) : Bas
                         cardPan = "", cardExpiry = "", cardType = CardType.None,
                         telephone = "",
                         txnDate = response.date,
-                        transactionId =  response.transactionId.toString()
+                        transactionId =  response.transactionId.toString(),
+                        currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                     )
                 )
             }

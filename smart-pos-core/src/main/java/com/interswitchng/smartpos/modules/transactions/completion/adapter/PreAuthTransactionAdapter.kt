@@ -100,9 +100,13 @@ internal class PreAuthTransactionAdapter(private val onSelect: (TransactionLog) 
 
         fun bind(txn: TransactionLog?) {
             txn?.toResult()?.apply {
-                tvAmount.text = tvAmount.context.getString(R.string.isw_currency_amount, DisplayUtils.getAmountString(amount.toInt()))
-                if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-                    tvAmount.text = tvAmount.context.getString(R.string.isw_dollar_currency_amount, DisplayUtils.getAmountString(amount.toInt()))
+                if (this.currencyType == IswPaymentInfo.CurrencyType.DOLLAR) {
+                    tvAmount.text = tvAmount.context.getString(
+                        R.string.isw_dollar_currency_amount,
+                        DisplayUtils.getAmountString(amount.toInt())
+                    )
+                }else{
+                    tvAmount.text = tvAmount.context.getString(R.string.isw_currency_amount, DisplayUtils.getAmountString(amount.toInt()))
                 }
                 tvTxnType.text = type.name
                 tvPaymentType.text = paymentType.name

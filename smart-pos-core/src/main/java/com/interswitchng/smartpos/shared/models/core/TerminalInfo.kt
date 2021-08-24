@@ -23,7 +23,7 @@ data class TerminalInfo(
     var merchantId: String,
     val terminalId2: String,
     val merchantId2: String,
-    val currencyCode2: String,
+    var currencyCode2: String,
     val merchantNameAndLocation: String,
     val merchantCategoryCode: String,
     val merchantAddress:String = "",

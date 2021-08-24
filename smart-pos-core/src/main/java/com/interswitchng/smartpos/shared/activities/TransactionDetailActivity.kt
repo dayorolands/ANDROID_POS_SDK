@@ -62,8 +62,7 @@ class TransactionDetailActivity : BaseMenuActivity(), IswPos.IswPaymentCallback 
 
     private fun setupUI(result: TransactionResultData) {
         // set text views values
-        var amountString: String
-
+        val amountString: String
         if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
             amountString = tvAmount.context.getString(
                 R.string.isw_dollar_title_amount,
@@ -74,6 +73,7 @@ class TransactionDetailActivity : BaseMenuActivity(), IswPos.IswPaymentCallback 
             DisplayUtils.getAmountString(result.amount.toInt())
             )
         }
+
         tvAmount.text = amountString
 
         tvStan.text = result.stan

@@ -17,6 +17,7 @@ import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.DateUtils
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
+import com.interswitchng.smartpos.shared.utilities.Logger
 import com.interswitchng.smartpos.shared.viewmodel.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -230,33 +231,33 @@ internal class ReportViewModel(
             return
         }
         transactions.forEach {
-            if (it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA) {
+            if (it.responseCode == IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.NAIRA.ordinal) {
                 transactionApproved += 1
-                transactionApprovedAmountInNaira += DisplayUtils.getAmountString(it.amount)
-            }else if(it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
+                transactionApprovedAmountInNaira += it.amount.toDouble()
+            }else if(it.responseCode == IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.DOLLAR.ordinal){
                 transactionApproved += 1
-                transactionApprovedAmtInDollar += DisplayUtils.getAmountString(it.amount)
+                transactionApprovedAmtInDollar += it.amount.toDouble()
             }
-            else if(it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-                transactionFailedAmountInDollar += DisplayUtils.getAmountString(it.amount)
+            else if(it.responseCode != IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.DOLLAR.ordinal){
+                transactionFailedAmountInDollar += it.amount.toDouble()
             }
-            else  if (it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA){
-                transactionFailedAmountInNaira += DisplayUtils.getAmountString(it.amount)
+            else  if (it.responseCode != IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.NAIRA.ordinal){
+                transactionFailedAmountInNaira += it.amount.toDouble()
             }
         }
 
         val transactionSum = transactions.size
+        Logger.with("This is the transaction sum we're getting ").logErr(transactionSum.toString())
+        Logger.with("This is the total approved transaction ").logErr(transactionApproved.toString())
         val transactionFailed = transactionSum - transactionApproved
-        val totalAmount = DisplayUtils.getAmountString((transactionApprovedAmountInNaira + transactionFailedAmountInNaira).toMajor())
+        val totalAmount = DisplayUtils.getAmountString((transactionApprovedAmountInNaira + transactionFailedAmountInNaira + transactionApprovedAmtInDollar + transactionFailedAmountInDollar).toMajor())
         val eodSummary = EodSummary(
                 transactionSum,
                 transactionApproved,
                 transactionFailed,
                 totalAmount,
-                DisplayUtils.getAmountString(transactionApprovedAmountInNaira.toMajor()),
-                DisplayUtils.getAmountString(transactionFailedAmountInNaira.toMajor()),
-                DisplayUtils.getAmountString(transactionApprovedAmtInDollar.toMajor()),
-                DisplayUtils.getAmountString(transactionFailedAmountInDollar.toMajor())
+                DisplayUtils.getAmountString(transactionApprovedAmountInNaira.toMajor() + transactionApprovedAmtInDollar.toMajor()),
+                DisplayUtils.getAmountString(transactionFailedAmountInNaira.toMajor() + transactionFailedAmountInDollar.toMajor())
         )
         _printButton.value = true
         _endOfDaySummary.postValue(eodSummary)
@@ -336,18 +337,18 @@ internal class ReportViewModel(
             lineItems.add(slipItem)
 
             //add successful transactions
-            if (it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA) {
+            if (it.responseCode == IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.NAIRA.ordinal) {
                 transactionApproved += 1
-                transactionApprovedAmountInNaira += DisplayUtils.getAmountString(it.amount)
-            }else if(it.responseCode == IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
+                transactionApprovedAmountInNaira += it.amount.toDouble()
+            }else if(it.responseCode == IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.DOLLAR.ordinal){
                 transactionApproved += 1
-                transactionApprovedAmountInDollar += DisplayUtils.getAmountString(it.amount)
+                transactionApprovedAmountInDollar += it.amount.toDouble()
             }
-            else if (it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.NAIRA){
-                transactionFailedAmountInNaira += DisplayUtils.getAmountString(it.amount)
+            else if (it.responseCode != IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.NAIRA.ordinal){
+                transactionFailedAmountInNaira += it.amount.toDouble()
             }
-            else if (it.responseCode != IsoUtils.OK && currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-                transactionFailedAmountInDollar += DisplayUtils.getAmountString(it.amount)
+            else if (it.responseCode != IsoUtils.OK && it.currencyType == IswPaymentInfo.CurrencyType.DOLLAR.ordinal){
+                transactionFailedAmountInDollar += it.amount.toDouble()
             }
         }
         //add line after transaction line items
@@ -364,7 +365,10 @@ internal class ReportViewModel(
         val transactionSum = this.size
         val transactionFailed = transactionSum - transactionApproved
 
-        val totalAmountString = DisplayUtils.getAmountString((transactionApprovedAmountInNaira + transactionFailedAmountInNaira).toMajor())
+        val totalAmountString = DisplayUtils.getAmountString((transactionApprovedAmountInNaira
+                + transactionFailedAmountInNaira
+                + transactionApprovedAmountInDollar
+                + transactionFailedAmountInDollar).toMajor())
         val totalApprovedAmtStringInNaira = DisplayUtils.getAmountString(transactionApprovedAmountInNaira.toMajor())
         val totalFailedAmtStringInNaira = DisplayUtils.getAmountString(transactionFailedAmountInNaira.toMajor())
         val totalApprovedAmtStringInDollar = DisplayUtils.getAmountString(transactionApprovedAmountInDollar.toMajor())
@@ -373,8 +377,8 @@ internal class ReportViewModel(
         list.add(PrintObject.Data("Total Transactions: $transactionSum\n", PrintStringConfiguration(isBold = true)))
         list.add(PrintObject.Data("Total Passed Transaction: $transactionApproved\n", PrintStringConfiguration(isBold = true)))
         list.add(PrintObject.Data("Total Failed Transaction: $transactionFailed\n", PrintStringConfiguration(isBold = true)))
-        list.add(PrintObject.Data("Total Appvd Amt in Naira: $totalApprovedAmtStringInNaira\n", PrintStringConfiguration(isBold = true)))
-        list.add(PrintObject.Data("Total Appvd Amt in Dollar: $totalApprovedAmtStringInDollar\n", PrintStringConfiguration(isBold = true)))
+        list.add(PrintObject.Data("Total Apprvd Amt in Naira: $totalApprovedAmtStringInNaira\n", PrintStringConfiguration(isBold = true)))
+        list.add(PrintObject.Data("Total Apprvd Amt in Dollar: $totalApprovedAmtStringInDollar\n", PrintStringConfiguration(isBold = true)))
         list.add(PrintObject.Data("Total Failed Amt in Naira: $totalFailedAmtStringInNaira\n", PrintStringConfiguration(isBold = true)))
         list.add(PrintObject.Data("Total Failed Amt in Dollar: $totalFailedAmtStringInDollar\n", PrintStringConfiguration(isBold = true)))
         list.add(PrintObject.Data("Total Amount: $totalAmountString\n", PrintStringConfiguration(isBold = true)))

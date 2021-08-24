@@ -22,6 +22,7 @@ import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.PurchaseType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.request.TransactionInfo
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.response.TransactionResponse
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DialogUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
@@ -156,7 +157,8 @@ internal class IswCardFragment : IswBasePaymentFragment(), CardFlowListener {
                     cardHolderName = emvData.icc.CARD_HOLDER_NAME,
                     code = "",
                     telephone = iswPos.config.merchantTelephone,
-                    txnDate = response.date
+                    txnDate = response.date,
+                    currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                 )
 
                 // close loader

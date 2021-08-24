@@ -194,7 +194,8 @@ internal class IswPreAuthCardFlowFragment: Fragment(), IswCardFlowFragment.CardF
                     AID = emvData.AID,
                     code = "",
                     telephone = iswPos.config.merchantTelephone,
-                    txnDate = response.date
+                    txnDate = response.date,
+                    currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                 )
 
                 // close loader

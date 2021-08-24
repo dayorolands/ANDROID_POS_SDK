@@ -12,6 +12,7 @@ import com.interswitchng.smartpos.shared.models.core.TransactionType
 import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.PaymentType
 import com.interswitchng.smartpos.shared.models.transaction.TransactionResultData
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
 import com.interswitchng.smartpos.shared.viewmodel.BaseViewModel
@@ -56,7 +57,8 @@ internal class PayCodeViewModel(private val isoService: IsoService, private val 
                                 cardPan = card.pan, cardExpiry = card.expiry, cardType = card.type,
                                 telephone = iswPos.config.merchantTelephone,
                                 cardHolderName = "",
-                                txnDate = response.date
+                                txnDate = response.date,
+                                currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                             )
                         )
                     }

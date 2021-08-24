@@ -113,8 +113,9 @@ internal object DisplayUtils: KoinComponent {
         var currency = when (val config = TerminalInfo.get(store)) {
             null -> ""
             else -> when(config.currencyCode) {
-                IswLocal.NIGERIA.code -> IswLocal.NIGERIA.currency
-                else -> ""
+                IswLocal.NIGERIA.code -> IswPaymentInfo.CurrencyType.NAIRA
+                    else
+                        -> ""
             }
         }
 
@@ -122,7 +123,6 @@ internal object DisplayUtils: KoinComponent {
             currency = when(val config = TerminalInfo.get(store)){
                 null -> ""
                 else -> when(config.currencyCode2){
-                    IswLocal.USA.code -> IswLocal.USA.currency
                     else -> ""
                 }
             }

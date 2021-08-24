@@ -201,7 +201,8 @@ internal class IswCashOutCardFlowFragment : Fragment(), IswCardFlowFragment.Card
                         txnDate = response.date,
                         cardHolderName = emvData.icc.CARD_HOLDER_NAME,
                         transactionId = response.transactionId ?: "",
-                        remoteResponseCode = response.remoteResponseCode ?: ""
+                        remoteResponseCode = response.remoteResponseCode ?: "",
+                        currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                 )
 
                 // close loader

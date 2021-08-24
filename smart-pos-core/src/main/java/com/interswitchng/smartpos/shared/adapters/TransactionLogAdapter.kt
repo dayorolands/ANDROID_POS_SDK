@@ -14,12 +14,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.interswitchng.smartpos.R
 import com.interswitchng.smartpos.shared.activities.TransactionDetailActivity
+import com.interswitchng.smartpos.shared.interfaces.library.KeyValueStore
+import com.interswitchng.smartpos.shared.models.core.TerminalInfo
+import com.interswitchng.smartpos.shared.models.core.TerminalInfo.Companion.get
 import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.TransactionLog
 import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.services.utils.DateUtils
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
+import org.koin.standalone.get
 import java.util.*
 
 class TransactionLogAdapter : PagedListAdapter<TransactionLog, RecyclerView.ViewHolder>(diffCallback) {
@@ -102,12 +106,15 @@ class TransactionLogAdapter : PagedListAdapter<TransactionLog, RecyclerView.View
         private val statusText: TextView = view.findViewById(R.id.tvStatus)
 
 
-        fun bind(txn: TransactionLog?) {
+        fun bind(txn: TransactionLog?){
             txn?.toResult()?.apply {
-                if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-                    tvAmount.text = tvAmount.context.getString(R.string.isw_dollar_currency_amount, DisplayUtils.getAmountString(amount.toInt()))
-                }else{
-                    tvAmount.text = tvAmount.context.getString(R.string.isw_currency_amount, DisplayUtils.getAmountString(amount.toInt()))
+                if (this.currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
+                    tvAmount.text = tvAmount.context.getString(R.string.isw_dollar_title_amount, DisplayUtils.getAmountString(amount.toInt()))
+                }else {
+                    tvAmount.text = tvAmount.context.getString(
+                        R.string.isw_currency_amount,
+                        DisplayUtils.getAmountString(amount.toInt())
+                    )
                 }
                 tvTxnType.text = type.name
                 tvPaymentType.text = paymentType.name
@@ -151,7 +158,6 @@ class TransactionLogAdapter : PagedListAdapter<TransactionLog, RecyclerView.View
             }
         }
     }
-
 
     inner class LoadingViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

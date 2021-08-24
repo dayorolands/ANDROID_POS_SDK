@@ -203,7 +203,8 @@ internal class IswCompletionFlowFragment : Fragment(), IswCardFlowFragment.CardF
                     cardHolderName = emvData.icc.CARD_HOLDER_NAME,
                     code = "",
                     telephone = iswPos.config.merchantTelephone,
-                    txnDate = response.date
+                    txnDate = response.date,
+                    currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                 )
 
                 // close loader

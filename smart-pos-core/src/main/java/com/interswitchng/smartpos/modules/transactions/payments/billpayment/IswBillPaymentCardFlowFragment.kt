@@ -208,7 +208,8 @@ internal class IswBillPaymentCardFlowFragment : Fragment(), IswCardFlowFragment.
                         transactionId = response.transactionId ?: "",
                         surcharge = response.inquiryResponse?.surcharge,
                         biller = response.inquiryResponse?.biller,
-                        customerDescription = response.inquiryResponse?.customerDescription
+                        customerDescription = response.inquiryResponse?.customerDescription,
+                        currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                 )
 
                 // close loader

@@ -1,6 +1,5 @@
 package com.interswitchng.smartpos.shared.models.transaction
 
-import android.os.Parcelable
 import com.google.gson.Gson
 import com.interswitchng.smartpos.shared.models.core.TransactionType
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.CardType
@@ -33,8 +32,8 @@ open class TransactionLog(
     var code: String = "",
     var telephone: String = "",
     var time: Long = Date().time,
-    var additionalInfo: String = ""
-    //var currencyType: Int = IswPaymentInfo.CurrencyType.NAIRA.ordinal //use this to serialize other misc fields
+    var additionalInfo: String = "",
+    var currencyType: Int = IswPaymentInfo.CurrencyType.NAIRA.ordinal //use this to serialize other misc fields
 ) : RealmObject() {
 
 
@@ -109,8 +108,8 @@ open class TransactionLog(
             transactionId = transactionId,
             //additionalInfo = additionalInfo,
             additionalAmounts = cashBackAmount,
-            surcharge = surcharge
-            //currencyType
+            surcharge = surcharge,
+            currencyType = IswPaymentInfo.CurrencyType.values()[currencyType]
         )
     }
 
@@ -143,8 +142,8 @@ open class TransactionLog(
             cardHolderName = result.cardHolderName,
             transactionId = result.transactionId,
             //additionalInfo = result.additionalInfo.toString()
-            additionalInfo = Gson().toJson(AdditionalInfo(result.surcharge, result.additionalAmounts))
-            //currencyType = result.currencyType.ordinal
+            additionalInfo = Gson().toJson(AdditionalInfo(result.surcharge, result.additionalAmounts)),
+            currencyType = result.currencyType.ordinal
         )
     }
 }
@@ -152,7 +151,7 @@ open class TransactionLog(
 @RealmModule(library = true, classes = [TransactionLog::class])
 class IswTransactionModule
 
-data class EodSummary(val totalVolume: Int, val successVolume: Int, val failedVolume: Int, val totalValue: String, val successValue: String, val failedValue: String, val successValDollar: String, val failedValDollar: String)
+data class EodSummary(val totalVolume: Int, val successVolume: Int, val failedVolume: Int, val totalValue: String, val successValue: String, val failedValue: String)
 
 data class AdditionalInfo(val surcharge: String?, val additionalAmounts: String?){
 

@@ -17,6 +17,7 @@ import com.interswitchng.smartpos.shared.models.transaction.IswPaymentInfo
 import com.interswitchng.smartpos.shared.models.transaction.PaymentType
 import com.interswitchng.smartpos.shared.models.transaction.TransactionResultData
 import com.interswitchng.smartpos.shared.models.transaction.cardpaycode.CardType
+import com.interswitchng.smartpos.shared.models.transaction.currencyType
 import com.interswitchng.smartpos.shared.models.transaction.ussdqr.request.CodeRequest
 import com.interswitchng.smartpos.shared.models.transaction.ussdqr.request.CodeRequest.Companion.QR_FORMAT_RAW
 import com.interswitchng.smartpos.shared.models.transaction.ussdqr.request.CodeRequest.Companion.TRANSACTION_QR
@@ -225,7 +226,8 @@ internal class IswQrFragment : IswBaseCodeFragment() {
             AID = "",
             code = qrData,
             telephone = iswPos.config.merchantTelephone,
-            txnDate = now.time
+            txnDate = now.time,
+            currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
         )
     }
 

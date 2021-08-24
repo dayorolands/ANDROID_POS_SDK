@@ -218,7 +218,8 @@ internal class IswCashBackFlowFragment : Fragment(), IswCardFlowFragment.CardFlo
                         transactionId = response.transactionId ?: "",
                         //additionalInfo = Gson().toJson(response.additionalInfo)
                         surcharge = response.additionalInfo?.surcharge,
-                        additionalAmounts = response.additionalInfo?.additionalAmounts
+                        additionalAmounts = response.additionalInfo?.additionalAmounts,
+                        currencyType = IswPaymentInfo.CurrencyType.values()[currencyType.ordinal]
                 )
 
                 // close loader

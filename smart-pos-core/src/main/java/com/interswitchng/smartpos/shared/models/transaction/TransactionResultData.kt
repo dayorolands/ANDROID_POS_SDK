@@ -42,8 +42,8 @@ internal data class TransactionResultData(
     val biller: String? = "",
     val customerDescription: String? = "",
     val surcharge: String? = "",
-    val additionalAmounts: String? = ""
-    //val currencyType: IswPaymentInfo.CurrencyType
+    val additionalAmounts: String? = "",
+    val currencyType: IswPaymentInfo.CurrencyType
 ) : Parcelable {
 
 
@@ -70,8 +70,8 @@ internal data class TransactionResultData(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readString()!!
-        //getCurrencyType(parcel.readInt())
+        parcel.readString()!!,
+        getCurrencyType(parcel.readInt())
     )
 
     val isSuccessful: Boolean get() = responseCode == IsoUtils.OK
@@ -156,7 +156,7 @@ internal data class TransactionResultData(
         parcel.writeString(customerDescription)
         parcel.writeString(surcharge)
         parcel.writeString(additionalAmounts)
-        //parcel.writeInt(currencyType.ordinal)
+        parcel.writeInt(currencyType.ordinal)
     }
 
     override fun describeContents(): Int {

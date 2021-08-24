@@ -53,7 +53,7 @@ internal val serviceModule = module {
         val realmConfig = RealmConfiguration.Builder()
             .name(filename)
             .encryptionKey(realmKey)
-            .schemaVersion(3L)
+            .schemaVersion(4L)
             .migration(TransactionLogMigration())
             .modules(IswTransactionModule())
             .build()
