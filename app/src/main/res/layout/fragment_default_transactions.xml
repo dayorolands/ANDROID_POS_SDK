@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/dateTextViewTransactionsType"
-                android:text="Boma n Daughters Ltd."
+                android:text="Good Day!"
                 android:layout_marginTop="@dimen/isw_content_small_margin"
                 android:layout_marginBottom="@dimen/isw_content_small_margin"
                 android:textColor="@color/iswTextColorDark"

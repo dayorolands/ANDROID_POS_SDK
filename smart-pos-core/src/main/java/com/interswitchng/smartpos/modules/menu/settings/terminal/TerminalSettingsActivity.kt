@@ -24,10 +24,9 @@ import com.interswitchng.smartpos.shared.services.kimono.models.AllTerminalInfo
 import com.interswitchng.smartpos.shared.services.kimono.models.TerminalInfoBySerials
 import com.interswitchng.smartpos.shared.services.utils.DateUtils
 import com.interswitchng.smartpos.shared.services.utils.IsoUtils
+import com.interswitchng.smartpos.shared.utilities.*
 import com.interswitchng.smartpos.shared.utilities.DialogUtils
 import com.interswitchng.smartpos.shared.utilities.DisplayUtils
-import com.interswitchng.smartpos.shared.utilities.InputValidator
-import com.interswitchng.smartpos.shared.utilities.toast
 import kotlinx.android.synthetic.main.isw_activity_terminal_settings.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -79,7 +78,6 @@ class TerminalSettingsActivity : BaseMenuActivity() {
         }
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.isw_menu_settings, menu)
         return true
@@ -119,7 +117,6 @@ class TerminalSettingsActivity : BaseMenuActivity() {
             if (invalidServerIp.hasError) etServerIP.error = invalidServerIp.message
             if (invalidServerPort.hasError) etServerPort.error = invalidServerPort.message
 
-
             // ensure no parameter is invalid
             !(invalidTerminalId.hasError
                     && invalidServerIp.hasError
@@ -150,7 +147,10 @@ class TerminalSettingsActivity : BaseMenuActivity() {
                 tvKeyDate.visibility = View.GONE
 
                 // trigger download keys
-                settingsViewModel.downloadKeys(terminalID, serverIp, serverPort.toInt(), switchKimono.isChecked)
+                settingsViewModel.downloadKeys(terminalID,
+                    serverIp,
+                    serverPort.toInt(),
+                    switchKimono.isChecked)
             }
         }
 
@@ -178,7 +178,10 @@ class TerminalSettingsActivity : BaseMenuActivity() {
                 tvTerminalInfoDate.visibility = View.GONE
 
                 // trigger download terminal config
-                settingsViewModel.downloadTerminalConfig(terminalID, serverIp, serverPort.toInt(), switchKimono.isChecked)
+                settingsViewModel.downloadTerminalConfig(terminalID,
+                    serverIp,
+                    serverPort.toInt(),
+                    switchKimono.isChecked)
             }
         }
 

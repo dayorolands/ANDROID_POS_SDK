@@ -109,7 +109,9 @@ class TransactionLogAdapter : PagedListAdapter<TransactionLog, RecyclerView.View
         fun bind(txn: TransactionLog?){
             txn?.toResult()?.apply {
                 if (this.currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-                    tvAmount.text = tvAmount.context.getString(R.string.isw_dollar_title_amount, DisplayUtils.getAmountString(amount.toInt()))
+                    tvAmount.text = tvAmount.context.getString(
+                        R.string.isw_dollar_title_amount,
+                        DisplayUtils.getAmountString(amount.toInt()))
                 }else {
                     tvAmount.text = tvAmount.context.getString(
                         R.string.isw_currency_amount,

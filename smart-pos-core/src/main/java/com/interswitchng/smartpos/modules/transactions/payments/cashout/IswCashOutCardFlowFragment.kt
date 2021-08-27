@@ -87,19 +87,6 @@ internal class IswCashOutCardFlowFragment : Fragment(), IswCardFlowFragment.Card
         // set card flow title
         cardFlowTitle.text = "Cash-out"
 
-
-        // set title amount
-        var amountString = getString(
-                R.string.isw_title_amount,
-                parent.iswPaymentInfo.amountString
-        )
-        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-            amountString = tvAmount.context.getString(
-                R.string.isw_dollar_currency_amount,
-                parent.iswPaymentInfo.amountString)
-        }
-        tvAmount.text = amountString
-
         // observe view model
         observeViewModel()
 
@@ -245,6 +232,22 @@ internal class IswCashOutCardFlowFragment : Fragment(), IswCardFlowFragment.Card
                     terminalInfo,
                     emvData,
                     cardFlowFragment::completeTransaction
+            )
+        }
+    }
+
+    override fun currencyChosen(cxch: String) {
+        Logger.with("The value returned in this method is : ").logErr(cxch)
+        // set title amount
+        if (cxch == "1"){
+            tvAmount.text = getString(
+                R.string.isw_dollar_currency_amount,
+                parent.iswPaymentInfo.amountString)
+        }
+        else{
+            tvAmount.text = getString(
+                R.string.isw_title_amount,
+                parent.iswPaymentInfo.amountString
             )
         }
     }

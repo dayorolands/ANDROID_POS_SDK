@@ -53,11 +53,13 @@ internal class CardSlip(terminal: TerminalInfo, status: TransactionStatus, priva
             }
             TransactionType.CashBack -> {
                 if(!info.additionalAmounts.isNullOrEmpty()){
-                    list.add(pairString("cashback amount", DisplayUtils.getAmountWithCurrency(
-                        info.additionalAmounts
+                    list.add(pairString("cashback amount", DisplayUtils.getAmtWithCurrency(
+                        info.additionalAmounts,
+                        info.currencyType
                     )))
-                    list.add(pairString("purchase amount", DisplayUtils.getAmountWithCurrency(
-                        (info.amount.toInt() - info.additionalAmounts.toInt()).toString()
+                    list.add(pairString("purchase amount", DisplayUtils.getAmtWithCurrency(
+                        (info.amount.toInt() - info.additionalAmounts.toInt()).toString(),
+                        info.currencyType
                     )))
                 }
             }

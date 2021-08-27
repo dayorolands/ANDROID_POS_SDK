@@ -202,6 +202,10 @@ internal class IswCardFragment : IswBasePaymentFragment(), CardFlowListener {
         }
     }
 
+    override fun currencyChosen(cxch: String) {
+        Logger.with("This is what is returned in this method: ").logErr(cxch)
+    }
+
     private fun resetTransaction() {
         // create a new card Flow fragment
         val fragment = IswCardFlowFragment()

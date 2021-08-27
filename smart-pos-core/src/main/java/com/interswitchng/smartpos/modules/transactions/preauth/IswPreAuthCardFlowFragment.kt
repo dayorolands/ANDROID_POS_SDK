@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.gojuno.koptional.None
 import com.gojuno.koptional.Optional
@@ -84,19 +85,6 @@ internal class IswPreAuthCardFlowFragment: Fragment(), IswCardFlowFragment.CardF
 
         // set card flow title
         cardFlowTitle.text = "Pre Auth"
-
-
-        // set title amount
-        var amountString = getString(
-            R.string.isw_title_amount,
-            parent.iswPaymentInfo.amountString
-        )
-        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-            amountString = tvAmount.context.getString(
-                R.string.isw_dollar_currency_amount,
-                parent.iswPaymentInfo.amountString)
-        }
-        tvAmount.text = amountString
 
         // observe view model
         observeViewModel()
@@ -207,7 +195,6 @@ internal class IswPreAuthCardFlowFragment: Fragment(), IswCardFlowFragment.CardF
         }
     }
 
-
     ///// CardFlowListener overrides
     override fun closeLoader() = parent.closeLoader(true)
 
@@ -238,6 +225,20 @@ internal class IswPreAuthCardFlowFragment: Fragment(), IswCardFlowFragment.CardF
                 terminalInfo,
                 emvData,
                 cardFlowFragment::completeTransaction
+            )
+        }
+    }
+
+    override fun currencyChosen(cxch: String) {
+        if (cxch == "1") {
+            tvAmount.text = getString(
+                R.string.isw_dollar_currency_amount,
+                parent.iswPaymentInfo.amountString)
+
+        } else {
+            tvAmount.text = getString(
+                R.string.isw_currency_amount,
+                parent.iswPaymentInfo.amountString
             )
         }
     }

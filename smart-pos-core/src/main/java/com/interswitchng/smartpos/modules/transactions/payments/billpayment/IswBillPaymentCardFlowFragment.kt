@@ -1,6 +1,7 @@
 package com.interswitchng.smartpos.modules.transactions.payments.billpayment
 
 import android.os.Bundle
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -90,20 +91,7 @@ internal class IswBillPaymentCardFlowFragment : Fragment(), IswCardFlowFragment.
         super.onViewCreated(view, savedInstance)
 
         // set card flow title
-        cardFlowTitle.text = "Payments"
-
-
-        // set title amount
-        var amountString = getString(
-                R.string.isw_title_amount,
-                parent.iswPaymentInfo.amountString
-        )
-        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-            amountString = tvAmount.context.getString(
-                R.string.isw_dollar_currency_amount,
-                parent.iswPaymentInfo.amountString)
-        }
-        tvAmount.text = amountString
+        cardFlowTitle.text = "Bills Payment"
 
         // observe view model
         observeViewModel()
@@ -291,6 +279,24 @@ internal class IswBillPaymentCardFlowFragment : Fragment(), IswCardFlowFragment.
                 //show card container to continue transaction
                 billsCardFlowContainer.show()
             }
+        }
+
+    }
+
+    override fun currencyChosen(cxch: String) {
+    Logger.with("This is what is returned for this method: ").logErr(cxch)
+        if (cxch == "1"){
+            // set title amount
+            tvAmount.text =
+                getString(
+                R.string.isw_title_amount,
+                parent.iswPaymentInfo.amountString
+            )
+        }
+        else{
+            tvAmount.text = getString(
+                R.string.isw_dollar_currency_amount,
+                parent.iswPaymentInfo.amountString)
         }
 
     }

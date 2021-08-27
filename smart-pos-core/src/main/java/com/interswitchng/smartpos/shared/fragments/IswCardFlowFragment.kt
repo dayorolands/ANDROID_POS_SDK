@@ -45,6 +45,7 @@ internal class IswCardFlowFragment : Fragment() {
         fun showLoadingMessage(message: String)
         fun processEmvResult(emvResult: EmvResult, emvData: EmvData?, accountType: AccountType)
         fun onCardRead(pan: String){}
+        fun currencyChosen(cxch: String)
     }
 
     enum class CardTransactionState {
@@ -310,6 +311,7 @@ internal class IswCardFlowFragment : Fragment() {
             when(it){
                 0 -> {
                     currencyType = IswPaymentInfo.CurrencyType.NAIRA
+                    parent.currencyChosen("0")
                     //cancelDialog.show()
                     DialogUtils.getAlertDialog(context!!)
                         .setTitle("Continue")
@@ -330,6 +332,7 @@ internal class IswCardFlowFragment : Fragment() {
 
                 1 -> {
                     currencyType = IswPaymentInfo.CurrencyType.DOLLAR
+                    parent.currencyChosen("1")
                     //cancelDialog.show()
                     DialogUtils.getAlertDialog(context!!)
                         .setTitle("Continue")

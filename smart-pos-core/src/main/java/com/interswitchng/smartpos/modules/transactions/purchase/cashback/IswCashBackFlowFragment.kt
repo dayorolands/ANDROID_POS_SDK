@@ -90,31 +90,7 @@ internal class IswCashBackFlowFragment : Fragment(), IswCardFlowFragment.CardFlo
         // set card flow title
         cardFlowTitle.text = "Cashback"
 
-
-        // set title amount
-        var amountString = getString(
-                R.string.isw_title_amount,
-                parent.iswPaymentInfo.amountString
-        )
-        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-            amountString = tvAmount.context.getString(
-                R.string.isw_dollar_currency_amount,
-                parent.iswPaymentInfo.amountString)
-        }
-        tvAmount.text = amountString
-
-        var cashBackAmt = getString(
-                R.string.isw_title_amount,
-                parent.iswPaymentInfo.additionalAmountsString
-        )
-        if (currencyType == IswPaymentInfo.CurrencyType.DOLLAR){
-            cashBackAmt = tvAmount.context.getString(
-                R.string.isw_dollar_title_amount,
-                parent.iswPaymentInfo.amountString)
-        }
-        tvCashBackAmount.text = cashBackAmt
-
-                // observe view model
+        // observe view model
         observeViewModel()
 
         // reset card state by creating
@@ -127,7 +103,6 @@ internal class IswCashBackFlowFragment : Fragment(), IswCardFlowFragment.CardFlo
             parent.dismiss()
         }
     }
-
 
     private fun observeViewModel() {
         with(this.cashBackViewModel) {
@@ -263,6 +238,28 @@ internal class IswCashBackFlowFragment : Fragment(), IswCardFlowFragment.CardFlo
                     emvData,
                     cardFlowFragment::completeTransaction
             )
+        }
+    }
+
+    override fun currencyChosen(cxch: String) {
+       Logger.with("").logErr(cxch)
+        //Set amount and cashback amount
+        if(cxch == "1"){
+            tvAmount.text = getString(
+                R.string.isw_dollar_currency_amount,
+                parent.iswPaymentInfo.amountString)
+            tvCashBackAmount.text = getString(
+                R.string.isw_dollar_currency_amount,
+                parent.iswPaymentInfo.additionalAmountsString)
+        }
+        else{
+            tvAmount.text = getString(
+                R.string.isw_title_amount,
+                parent.iswPaymentInfo.amountString
+            )
+            tvCashBackAmount.text = getString(
+                R.string.isw_title_amount,
+                parent.iswPaymentInfo.additionalAmountsString)
         }
     }
 

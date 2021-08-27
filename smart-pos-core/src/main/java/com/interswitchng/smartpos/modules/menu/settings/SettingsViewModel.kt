@@ -61,7 +61,6 @@ internal class SettingsViewModel : BaseViewModel(), KoinComponent {
         }
     }
 
-
     fun getTerminalInformation(xmlFile: InputStream): TerminalInformation =
         FileUtils.readXml(TerminalInformation::class.java, xmlFile)
 
