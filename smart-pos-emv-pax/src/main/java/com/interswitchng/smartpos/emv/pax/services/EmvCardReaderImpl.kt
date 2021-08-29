@@ -237,7 +237,7 @@ class EmvCardReaderImpl(context: Context) : EmvCardReader, PinCallback, IPed.IPe
         // get user encrypted pin based on kimono flag
         if (isKimono) {
             // get pin block from the terminal using DUKPT
-            val pinBlock = ped.getDUKPTPin(INDEX_TIK, "4,5", panBlock.toByteArray(), EDUKPTPinMode.ISO9564_0_INC, emvImpl.timeout.toInt())
+            val pinBlock = ped.getDUKPTPin(INDEX_TIK, "4,6", panBlock.toByteArray(), EDUKPTPinMode.ISO9564_0_INC, emvImpl.timeout.toInt())
 
             // extract pin result
             if (pinBlock == null) pinResult = RetCode.EMV_NO_PASSWORD
